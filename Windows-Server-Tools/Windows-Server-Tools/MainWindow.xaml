@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Windows_Server_Tools"
         mc:Ignorable="d"
-        Title="MainWindow" d:DesignHeight="450" d:DesignWidth="800" SizeToContent="WidthAndHeight">
+        Title="MainWindow" d:DesignHeight="447.95" d:DesignWidth="747.722" SizeToContent="WidthAndHeight">
     <Grid>
         <Button x:Name="InstallActiveDirectoryButton" Content="Submit" HorizontalAlignment="Left" Height="49" Margin="23,125,0,0" VerticalAlignment="Top" Width="226" Click="InstallActiveDirectoryButton_Click"/>
         <TextBox x:Name="DomainNameTextBox" HorizontalAlignment="Left" Margin="27,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" Height="42"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,10,0,0" TextWrapping="Wrap" Text="Install Active Directory" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
         <TextBlock HorizontalAlignment="Left" Margin="27,43,0,0" TextWrapping="Wrap" Text="Please enter a new domain name here" VerticalAlignment="Top"/>
+        <Button Content="Set Static IP" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="Button_Click"/>
 
     </Grid>
 </Window>

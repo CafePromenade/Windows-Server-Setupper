@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UsefulTools;
 
 namespace Windows_Server_Tools
 {
@@ -30,63 +31,19 @@ namespace Windows_Server_Tools
         private async void InstallActiveDirectoryButton_Click(object sender, RoutedEventArgs e)
         {
             InstallActiveDirectoryButton.IsEnabled = false;
-            PromoteToDomainController(DomainNameTextBox.Text, "P@ssw0rd");
+            await Task.Delay(500);
+            InstallActiveDirectoryButton.Content = "Please wait";
+            InstallActiveDirectoryAndPromoteToDC(DomainNameTextBox.Text, "P@ssw0rd", DomainNameTextBox.Text.Split('.')[0].ToUpper());
+            InstallActiveDirectoryButton.Content = "DONE";
+            await Task.Delay(500);
             InstallActiveDirectoryButton.IsEnabled = true;
         }
 
-        public static void PromoteToDomainController(string domainName, string safeModeAdminPassword)
+        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                // Create a PowerShell instance
-                using (PowerShell psInstance = PowerShell.Create())
-                {
-                    // Command to install ADDS feature
-                    psInstance.AddScript("Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools");
-
-                    // Execute the script
-                    Collection<PSObject> result = psInstance.Invoke();
-                    foreach (var outputItem in result)
-                    {
-                        Console.WriteLine(outputItem.ToString());
-                    }
-
-                    // Reset the PowerShell instance for promoting the server to a DC
-                    psInstance.Commands.Clear();
-
-                    // Create the PowerShell script to promote the server to a DC
-                    string promoteCommand = $"Install-ADDSForest -DomainName {domainName} -SafeModeAdministratorPassword (ConvertTo-SecureString \"{safeModeAdminPassword}\" -AsPlainText -Force) -Force -InstallDns";
-
-                    psInstance.AddScript(promoteCommand);
-
-                    // Execute the promotion command
-                    result = psInstance.Invoke();
-
-                    // Display any result or error
-                    foreach (var outputItem in result)
-                    {
-                        Console.WriteLine(outputItem.ToString());
-                    }
-
-                    // Check for errors
-                    if (psInstance.Streams.Error.Count > 0)
-                    {
-                        foreach (var error in psInstance.Streams.Error)
-                        {
-                            Console.WriteLine($"Error: {error.ToString()}");
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Server successfully promoted to Domain Controller.");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Exception: {ex.Message}");
-            }
+            Command.RunCommandHidden("@echo off\r\nSETLOCAL ENABLEDELAYEDEXPANSION\r\n\r\n:: Get the current IP address, Subnet Mask, and Default Gateway\r\nFOR /F \"tokens=2 delims=:\" %%a in ('ipconfig ^| findstr /C:\"IPv4 Address\"') do set currentIP=%%a\r\nFOR /F \"tokens=2 delims=:\" %%b in ('ipconfig ^| findstr /C:\"Subnet Mask\"') do set subnetMask=%%b\r\nFOR /F \"tokens=2 delims=:\" %%c in ('ipconfig ^| findstr /C:\"Default Gateway\"') do set defaultGateway=%%c\r\n\r\n:: Remove leading spaces\r\nSET currentIP=%currentIP:~1%\r\nSET subnetMask=%subnetMask:~1%\r\nSET defaultGateway=%defaultGateway:~1%\r\n\r\n:: Set the static IP address (using the current IP)\r\nnetsh interface ip set address \"Ethernet0\" static %currentIP% %subnetMask% %defaultGateway%\r\n\r\n:: Set the DNS server to the default gateway\r\nnetsh interface ip set dns \"Ethernet0\" static %defaultGateway%\r\n\r\necho New IP configuration:\r\necho IP Address: %currentIP%\r\necho Subnet Mask: %subnetMask%\r\necho Default Gateway: %defaultGateway%\r\necho DNS Server: %defaultGateway%\r\n\r\nENDLOCAL\r\n");
         }
-
     }
 }

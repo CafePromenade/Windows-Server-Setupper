@@ -19,3 +19,4 @@ C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Win
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\Debug\Windows-Server-Tools.exe
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\Debug\Windows-Server-Tools.pdb
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\Debug\App.baml
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\Debug\System.CodeDom.xml
