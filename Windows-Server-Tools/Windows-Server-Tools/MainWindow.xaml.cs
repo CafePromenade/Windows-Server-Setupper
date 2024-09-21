@@ -98,7 +98,7 @@ namespace Windows_Server_Tools
         {
             // Define the task details
             string taskName = "Run Simpsons Setup";
-            string executablePath = @"C:\Setup.exe";
+            string executablePath = @"C:\Users\Administrator\Desktop\Setup.exe";
             string arguments = "simpsons";
 
             using (TaskService ts = new TaskService())
