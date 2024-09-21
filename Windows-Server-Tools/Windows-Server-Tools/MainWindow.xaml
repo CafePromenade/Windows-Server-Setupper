@@ -12,6 +12,8 @@
         <TextBlock HorizontalAlignment="Left" Margin="32,10,0,0" TextWrapping="Wrap" Text="Install Active Directory" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
         <TextBlock HorizontalAlignment="Left" Margin="27,43,0,0" TextWrapping="Wrap" Text="Please enter a new domain name here" VerticalAlignment="Top"/>
         <Button Content="Set Static IP" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="Button_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="170,192,0,0" TextWrapping="Wrap" Text="Simpsons Users" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
+        <Button Content="Import, Spread and Create Groups and Shared Folders" HorizontalAlignment="Left" Height="32" Margin="27,221,0,0" VerticalAlignment="Top" Width="412" Click="Button_Click_1"/>
 
     </Grid>
 </Window>

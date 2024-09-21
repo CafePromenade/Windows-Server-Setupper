@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Management;
 using System.Management.Automation;
@@ -124,8 +125,9 @@ namespace Windows_Server_Tools
                 // Check if AD DS installation was successful
                 if (true)
                 {
-                    MessageBox.Show("Active Directory Domain Services and Management Tools installed successfully.");
+                    //MessageBox.Show("Active Directory Domain Services and Management Tools installed successfully.");
 
+                    File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\Domain.txt", domainName);
                     // Now promote the server to a Domain Controller
                     process.StartInfo.Verb = "runas"; // This ensures the process starts with administrative privileges
                     process.StartInfo.Arguments = $"-NoExit -Command \"{promoteCommand}\"";
@@ -152,5 +154,20 @@ namespace Windows_Server_Tools
             }
         }
 
+
+        public static void RunPowerShellScript(string script)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
+            process.StartInfo.Arguments = $"-Command \"{script}\"";
+            process.StartInfo.RedirectStandardOutput = false; // Allows the window to show
+            process.StartInfo.UseShellExecute = true; // This will show the PowerShell window
+            process.StartInfo.CreateNoWindow = false; // Do not create a hidden window
+            process.StartInfo.Verb = "runas"; // This ensures the process starts with administrative privileges
+
+            // Start the AD DS installation process
+            process.Start();
+            process.WaitForExit();
+        }
     }
 }

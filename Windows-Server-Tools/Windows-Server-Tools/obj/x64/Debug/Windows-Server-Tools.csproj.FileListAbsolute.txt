@@ -20,3 +20,4 @@ C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Win
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-.EB1C69BB.Up2Date
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools.exe
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools.pdb
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\Microsoft.Win32.TaskScheduler.xml

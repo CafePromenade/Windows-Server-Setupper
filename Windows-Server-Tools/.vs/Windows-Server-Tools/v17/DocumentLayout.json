@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\windows-server-tools\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\windows-server-tools\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\data.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -26,15 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 389,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
               "$type": "Bookmark",
@@ -45,33 +45,50 @@
               "Name": "ST:128:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Functions.cs",
-              "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Functions.cs",
-              "RelativeDocumentMoniker": "Windows-Server-Tools\\Functions.cs",
-              "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Functions.cs",
-              "RelativeToolTip": "Windows-Server-Tools\\Functions.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAgwHEAAAAwAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Data.cs",
+              "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Data.cs",
+              "RelativeDocumentMoniker": "Windows-Server-Tools\\Data.cs",
+              "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Data.cs",
+              "RelativeToolTip": "Windows-Server-Tools\\Data.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T14:42:41.36Z",
+              "WhenOpened": "2024-09-21T18:44:47.876Z",
               "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "Name": "ST:0:0:{d84ee353-0bef-5a41-a649-8f89aca5d84d}"
             },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
+              "Title": "Functions.cs",
+              "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Functions.cs",
+              "RelativeDocumentMoniker": "Windows-Server-Tools\\Functions.cs",
+              "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Functions.cs",
+              "RelativeToolTip": "Windows-Server-Tools\\Functions.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAWwFQAAABKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-18T14:42:41.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\App.xaml",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\App.xaml",
@@ -83,13 +100,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\MainWindow.xaml.cs",
               "RelativeToolTip": "Windows-Server-Tools\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAADcAAAAAAAAAAAAkwEEAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-05T16:41:52.605Z",
               "EditorCaption": ""
