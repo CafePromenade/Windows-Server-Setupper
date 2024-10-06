@@ -6,15 +6,29 @@ using System.IO;
 using System.Linq;
 using System.Management;
 using System.Management.Automation;
+using System.Management.Automation.Runspaces;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using UsefulTools;
+using Command = UsefulTools.Command;
 
 namespace Windows_Server_Tools
 {
     public partial class MainWindow : Window
     {
+
+        public static async Task SolveWindowsTasks()
+        {
+            await Command.RunCommandHidden("@echo off\r\n\r\n:: Disable all firewalls\r\nnetsh advfirewall set allprofiles state off\r\n\r\n:: Disable sleep and monitor off settings\r\npowercfg -change -standby-timeout-ac 0\r\npowercfg -change -monitor-timeout-ac 0\r\npowercfg -change -disk-timeout-ac 0\r\npowercfg -change -hibernate-timeout-ac 0\r\n\r\n:: Enable Remote Desktop without Network Level Authentication\r\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fDenyTSConnections /t REG_DWORD /d 0 /f\r\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /v UserAuthentication /t REG_DWORD /d 0 /f\r\n\r\n:: Disable Internet Explorer Enhanced Security Configuration (IE ESC)\r\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\" /v IsInstalled /t REG_DWORD /d 0 /f\r\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\" /v IsInstalled /t REG_DWORD /d 0 /f\r\ntaskkill /F /IM explorer.exe\r\nstart explorer.exe\r\n\r\n:: Disable Windows SmartScreen\r\nreg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\" /v EnableSmartScreen /t REG_DWORD /d 0 /f\r\n\r\n:: Disable Windows Defender\r\npowershell -Command \"Set-MpPreference -DisableRealtimeMonitoring $true\"\r\n\r\necho All tasks completed.");
+
+            RunPowerShellScript("# Install DNS Server\r\nInstall-WindowsFeature -Name DNS -IncludeManagementTools\r\n\r\n# Install DHCP Server\r\nInstall-WindowsFeature -Name DHCP -IncludeManagementTools\r\n\r\n# Post-installation configuration for DHCP\r\n# Authorize the DHCP server in Active Directory\r\nAdd-DhcpServerInDC -DnsName (Get-ComputerInfo).CsName -IPAddress (Get-NetIPAddress -AddressFamily IPv4).IPAddress");
+
+            Chocolatey.InstallChocolatey();
+
+            await ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx");
+        }
         public static void SetStaticIp(string adapterName, string ipAddress, string subnetMask)
         {
             try
@@ -82,7 +96,7 @@ namespace Windows_Server_Tools
 
 
 
-        public static void InstallActiveDirectoryAndPromoteToDC(string domainName, string safeModeAdminPassword, string domainNetbiosName = "CONTOSO")
+        public static async Task InstallActiveDirectoryAndPromoteToDC(string domainName, string safeModeAdminPassword, string domainNetbiosName = "CONTOSO")
         {
             try
             {

@@ -14,6 +14,19 @@
         <Button Content="Set Static IP" HorizontalAlignment="Left" Margin="277,10,0,0" VerticalAlignment="Top" Height="30" Width="158" Click="Button_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="170,192,0,0" TextWrapping="Wrap" Text="Simpsons Users" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
         <Button Content="Import, Spread and Create Groups and Shared Folders" HorizontalAlignment="Left" Height="32" Margin="27,221,0,0" VerticalAlignment="Top" Width="412" Click="Button_Click_1"/>
+        <Grid HorizontalAlignment="Left" Height="243" Margin="456,10,0,0" VerticalAlignment="Top" Width="282" Background="#FFD3EAC9">
+            <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" Text="Software Installation" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
+            <Button x:Name="InstallChocolateyButton" Content="Install Chocolatey" HorizontalAlignment="Left" Height="29" Margin="13,41,0,0" VerticalAlignment="Top" Width="246" Click="InstallChocolateyButton_Click"/>
+            <Button x:Name="InstallChocolateySoftwareButton" Content="Start installing software" HorizontalAlignment="Left" Height="27" Margin="13,160,0,0" VerticalAlignment="Top" Width="246" Click="InstallChocolateySoftwareButton_Click"/>
+            <TextBox x:Name="ChocoSoftwareTextBox" TextWrapping="Wrap" Margin="13,105,23,91"/>
+            <TextBlock HorizontalAlignment="Left" Margin="13,84,0,0" TextWrapping="Wrap" Text="Enter software you would like to install" VerticalAlignment="Top"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="1" Margin="23,270,0,0" VerticalAlignment="Top" Width="9"/>
+        <Grid x:Name="InstallServerStuffGrid" HorizontalAlignment="Left" Height="152" Margin="23,270,0,0" VerticalAlignment="Top" Width="715" Background="#FFB4E6E7">
+            <TextBlock HorizontalAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap" Text="Install Server Stuff" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"/>
+            <Button x:Name="CommonInstallStuffButton" Content="Open commonly stuff menu" HorizontalAlignment="Left" Height="28" Margin="9,31,0,0" VerticalAlignment="Top" Width="169" Click="CommonInstallStuffButton_Click"/>
+        </Grid>
+        <Button x:Name="AdapterSettingsButton" Content="Network Adapter Settings" HorizontalAlignment="Left" Height="26" Margin="277,59,0,0" VerticalAlignment="Top" Width="162" Click="Button_Click_2"/>
 
     </Grid>
 </Window>

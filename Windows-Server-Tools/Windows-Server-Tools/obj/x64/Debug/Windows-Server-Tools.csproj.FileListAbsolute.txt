@@ -21,3 +21,5 @@ C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Win
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools.exe
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools.pdb
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\Microsoft.Win32.TaskScheduler.xml
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\CommonlyInstalledWindowsComponents.g.cs
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\CommonlyInstalledWindowsComponents.baml

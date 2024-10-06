@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
@@ -33,8 +34,16 @@ namespace Windows_Server_Tools
             Loaded += MainWindow_Loaded;
         }
 
-        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            if (!File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt"))
+            {
+                // Set Static IP //
+                await Command.RunCommandHidden("@echo off\r\nSETLOCAL ENABLEDELAYEDEXPANSION\r\n\r\n:: Get the current IP address, Subnet Mask, and Default Gateway\r\nFOR /F \"tokens=2 delims=:\" %%a in ('ipconfig ^| findstr /C:\"IPv4 Address\"') do set currentIP=%%a\r\nFOR /F \"tokens=2 delims=:\" %%b in ('ipconfig ^| findstr /C:\"Subnet Mask\"') do set subnetMask=%%b\r\nFOR /F \"tokens=2 delims=:\" %%c in ('ipconfig ^| findstr /C:\"Default Gateway\"') do set defaultGateway=%%c\r\n\r\n:: Remove leading spaces\r\nSET currentIP=%currentIP:~1%\r\nSET subnetMask=%subnetMask:~1%\r\nSET defaultGateway=%defaultGateway:~1%\r\n\r\n:: Set the static IP address (using the current IP)\r\nnetsh interface ip set address \"Ethernet0\" static %currentIP% %subnetMask% %defaultGateway%\r\n\r\n:: Set the DNS server to the default gateway\r\nnetsh interface ip set dns \"Ethernet0\" static %defaultGateway%\r\n\r\necho New IP configuration:\r\necho IP Address: %currentIP%\r\necho Subnet Mask: %subnetMask%\r\necho Default Gateway: %defaultGateway%\r\necho DNS Server: %defaultGateway%\r\n\r\nENDLOCAL\r\n");
+                // Do the repetitive tasks //
+                await SolveWindowsTasks(); 
+                File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt","true");
+            }
         }
 
         private void ShowUsage()
@@ -197,6 +206,7 @@ namespace Windows_Server_Tools
             // CSV-DE The Simpsons Users //
             string ReplacedCSV = Data.SimpsonsUsers.Replace("DC=jackson", "DC=" + DomainName);
             ReplacedCSV = Data.SimpsonsUsers.Replace("DC=local", "DC=" + DomainCOM);
+            ReplacedCSV = ReplaceWithDomainStuff(Data.SimpsonsUsers);
             File.WriteAllText("C:\\lol.csv", ReplacedCSV);
             await Command.RunCommandHidden("csvde -i -f \"" + "C:\\lol.csv" + "\"");
 
@@ -265,11 +275,48 @@ namespace Windows_Server_Tools
 ");
 
             RunPowerShellScript(ShareScript);
+
+
+            // Install Stuff //
+            Visibility = Visibility.Hidden;
+            await ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx");
         }
 
         public string ReplaceWithDomainStuff(string input)
         {
             return input.Replace("DC=jackson","DC=" + DomainName).Replace("DC=local","DC=" + DomainCOM);
+        }
+
+        private async void InstallChocolateyButton_Click(object sender, RoutedEventArgs e)
+        {
+            InstallChocolateyButton.IsEnabled = false;
+            Command.RunCommand("@\"%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command \"[System.Net.ServicePointManager]::SecurityProtocol = 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))\" && SET \"PATH=%PATH%;%ALLUSERSPROFILE%\\chocolatey\\bin\"");
+            InstallChocolateyButton.IsEnabled = true;
+        }
+
+        private static async Task ChocoInstall(string SOFTWARE)
+        {
+            await Command.RunCommandHidden("\"C:\\ProgramData\\chocolatey\\bin\\choco.exe\" install " + SOFTWARE + " -y --ignore-checksums");
+        }
+        private async void InstallChocolateySoftwareButton_Click(object sender, RoutedEventArgs e)
+        {
+            InstallChocolateyButton.IsEnabled = false;
+            Visibility = Visibility.Hidden;
+            await Command.RunCommandHidden("\"C:\\ProgramData\\chocolatey\\bin\\choco.exe\" install " + ChocoSoftwareTextBox.Text + " -y --ignore-checksums");
+            //await Chocolatey.ChocolateyDownload(ChocoSoftwareTextBox.Text);
+            InstallChocolateyButton.IsEnabled = true;
+            Visibility = Visibility.Visible;
+        }
+
+        private void CommonInstallStuffButton_Click(object sender, RoutedEventArgs e)
+        {
+            CommonlyInstalledWindowsComponents d = new CommonlyInstalledWindowsComponents();
+            d.Show();
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Process.Start("ncpa.cpl");
         }
     }
 }
