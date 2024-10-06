@@ -25,9 +25,9 @@ namespace Windows_Server_Tools
 
             RunPowerShellScript("# Install DNS Server\r\nInstall-WindowsFeature -Name DNS -IncludeManagementTools\r\n\r\n# Install DHCP Server\r\nInstall-WindowsFeature -Name DHCP -IncludeManagementTools\r\n\r\n# Post-installation configuration for DHCP\r\n# Authorize the DHCP server in Active Directory\r\nAdd-DhcpServerInDC -DnsName (Get-ComputerInfo).CsName -IPAddress (Get-NetIPAddress -AddressFamily IPv4).IPAddress");
 
-            Chocolatey.InstallChocolatey();
+            await Chocolatey.InstallChocolatey();
 
-            await ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx");
+            ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx");
         }
         public static void SetStaticIp(string adapterName, string ipAddress, string subnetMask)
         {

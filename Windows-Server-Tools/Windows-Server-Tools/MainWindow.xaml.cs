@@ -30,7 +30,6 @@ namespace Windows_Server_Tools
         public MainWindow()
         {
             InitializeComponent();
-            HandleCommandLineArgs(Environment.GetCommandLineArgs());
             Loaded += MainWindow_Loaded;
         }
 
@@ -44,6 +43,7 @@ namespace Windows_Server_Tools
                 await SolveWindowsTasks(); 
                 File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt","true");
             }
+            HandleCommandLineArgs(Environment.GetCommandLineArgs());
         }
 
         private void ShowUsage()
@@ -57,6 +57,13 @@ namespace Windows_Server_Tools
                 if (args.Length == 0)
                 {
                     //ShowUsage();
+                    if (!File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\ChocoComplete.txt"))
+                    {
+                        File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\ChocoComplete.txt","true");
+                        await Chocolatey.InstallChocolatey();
+
+                        ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx"); 
+                    }
                     return;
                 }
 
