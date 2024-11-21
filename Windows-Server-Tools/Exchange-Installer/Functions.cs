@@ -19,7 +19,7 @@ namespace Exchange_Installer
             await Command.RunCommandHidden("@echo off\r\n\r\n:: Disable all firewalls\r\nnetsh advfirewall set allprofiles state off\r\n\r\n:: Disable sleep and monitor off settings\r\npowercfg -change -standby-timeout-ac 0\r\npowercfg -change -monitor-timeout-ac 0\r\npowercfg -change -disk-timeout-ac 0\r\npowercfg -change -hibernate-timeout-ac 0\r\n\r\n:: Enable Remote Desktop without Network Level Authentication\r\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\" /v fDenyTSConnections /t REG_DWORD /d 0 /f\r\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Terminal Server\\WinStations\\RDP-Tcp\" /v UserAuthentication /t REG_DWORD /d 0 /f\r\n\r\n:: Disable Internet Explorer Enhanced Security Configuration (IE ESC)\r\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}\" /v IsInstalled /t REG_DWORD /d 0 /f\r\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}\" /v IsInstalled /t REG_DWORD /d 0 /f\r\ntaskkill /F /IM explorer.exe\r\nstart explorer.exe\r\n\r\n:: Disable Windows SmartScreen\r\nreg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\" /v EnableSmartScreen /t REG_DWORD /d 0 /f\r\n\r\n:: Disable Windows Defender\r\npowershell -Command \"Set-MpPreference -DisableRealtimeMonitoring $true\"\r\n\r\necho All tasks completed.");
 
             RunPowerShellScript("# Install DNS Server\r\nInstall-WindowsFeature -Name DNS -IncludeManagementTools\r\n\r\n# Install DHCP Server\r\nInstall-WindowsFeature -Name DHCP -IncludeManagementTools\r\n\r\n# Post-installation configuration for DHCP\r\n# Authorize the DHCP server in Active Directory\r\nAdd-DhcpServerInDC -DnsName (Get-ComputerInfo).CsName -IPAddress (Get-NetIPAddress -AddressFamily IPv4).IPAddress");
-
+            RunPowerShellScript("Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Features, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Lgcy-Mgmt-Console, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS");
             await Chocolatey.InstallChocolatey();
         }
 
@@ -127,11 +127,44 @@ namespace Exchange_Installer
                 File.Copy(currentPath, targetPath, true);
 
                 // Step 2: Create a Task Scheduler entry
-                CreateTaskSchedulerEntry(targetPath, "exchange");
+                //CreateTaskSchedulerEntry(targetPath, "exchange");
+                CreateSimpsonsTask(targetPath,"exchange");
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error: {ex.Message}");
+            }
+        }
+
+        public static void CreateSimpsonsTask(string programpath, string arguments)
+        {
+            // Define the task details
+            string taskName = "Run EXCHANGE";
+            //string arguments = "simpsons";
+
+            using (TaskService ts = new TaskService())
+            {
+                // Create a new task definition
+                TaskDefinition td = ts.NewTask();
+                td.RegistrationInfo.Description = "Runs Setup.exe with 'exchange' arguments after login.";
+                td.Principal.UserId = Environment.UserDomainName + "\\" + Environment.UserName;
+                td.Principal.LogonType = TaskLogonType.InteractiveToken;
+                td.Principal.RunLevel = TaskRunLevel.Highest; // Run with highest privileges
+
+                // Set the trigger to run at logon
+                td.Triggers.Add(new LogonTrigger());
+
+                // Create the action to run the executable with arguments
+                td.Actions.Add(new ExecAction(programpath, arguments, null));
+
+                // Action to delete the task after it finishes
+                string deleteTaskScript = $@"
+                    schtasks /delete /tn ""{taskName}"" /f
+                ";
+                td.Actions.Add(new ExecAction("cmd.exe", $"/c {deleteTaskScript}", null));
+
+                // Register the task in the Task Scheduler
+                ts.RootFolder.RegisterTaskDefinition(taskName, td);
             }
         }
 

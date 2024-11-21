@@ -20,12 +20,51 @@ namespace Exchange_Installer
             Load += Form1_Load;
             Load += Form1_Load1;
         }
+        public static string DomainName
+        {
+            get
+            {
+                if (File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\Domain.txt"))
+                {
+                    return File.ReadAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\Domain.txt").Split('.')[0];
+                }
+                return "";
+            }
+        }
+
+        public static string DomainCOM
+        {
+            get
+            {
+                if (File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\Domain.txt"))
+                {
+                    return File.ReadAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\Domain.txt").Split('.')[1];
+                }
+                return "";
+            }
+        }
 
         private async void Form1_Load1(object sender, EventArgs e)
         {
             if (Environment.GetCommandLineArgs().Contains("exchange"))
             {
+                string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
 
+                // Prepare Exchange environment //
+                Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareSchema");
+                Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAD /OrganizationName:\"" + DomainName + "\"");
+                Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAllDomains");
+                Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareDomain:" + DomainName + "." + DomainCOM);
+
+                // Install Mailbox Role //
+                Functions.RunPowerShellScript(exchangeSetupPath + " /Mode:Install /Roles:Mailbox /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /InstallWindowsComponents");
+                Close();
+            }
+
+            if (Environment.GetCommandLineArgs().Contains("dadhui"))
+            {
+                await Functions.DaDhui();
+                Close();
             }
         }
 
@@ -49,11 +88,13 @@ namespace Exchange_Installer
             button1.Enabled = false;
             Visible = false;
             // Install Prequisites //
-            await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 urlrewrite googlechrome");
+            Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 urlrewrite googlechrome -y");
+            //await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 urlrewrite googlechrome");
             // DA DHUI AND COMPLETE RESTART TASKS //
             await Functions.DaDhui();
             // Promote to DC //
             await Functions.InstallActiveDirectoryAndPromoteToDC(textBox1.Text, "P@ssw0rd", textBox1.Text.Split('.')[0].ToUpper());
+            Close();
         }
     }
 }
