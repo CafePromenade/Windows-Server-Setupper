@@ -1,0 +1,43 @@
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Exchange-Installer.exe.config
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Exchange-Installer.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Exchange-Installer.pdb
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\Debug\Exchange-Installer.csproj.AssemblyReference.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\Debug\Exchange_Installer.Form1.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\Debug\Exchange_Installer.Properties.Resources.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\Debug\Exchange-Installer.csproj.GenerateResource.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\Debug\Exchange-Installer.csproj.CoreCompileInputs.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\Debug\Exchange-Installer.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\Debug\Exchange-Installer.pdb
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Adobe Manual Installation API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\APIs.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Base64 API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Coronavirus API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\GitHUB API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\GitHub Database Downloader API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\GitHub-Large-Uploader API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\HTML Download API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Jackson Download Manager API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\NextbusNET.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Ontario Color Coded Restrictions API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Ontario Coronavirus API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\ParseHub.Client.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\RestSharp.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Teach Assist.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\UsefulTools.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Vaccine Slot Library.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\WinRAR API.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\Debug\Exchange.10E9FC74.Up2Date
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Microsoft.Win32.TaskScheduler.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\Microsoft.Win32.TaskScheduler.xml
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\de\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\es\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\fr\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\it\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\ja\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\pl\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\ru\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\sv\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\tr\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\zh-CN\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\Debug\zh-Hant\Microsoft.Win32.TaskScheduler.resources.dll
