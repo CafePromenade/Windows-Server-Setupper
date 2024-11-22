@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net;
@@ -21,7 +22,9 @@ namespace ExchangeInstallerLoader
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            new WebClient().DownloadFile();
+            new WebClient().DownloadFile(new Uri("https://raw.githubusercontent.com/CafePromenade/Windows-Server-Setupper/refs/heads/main/Windows-Server-Tools/Exchange-Installer/bin/x64/Debug/Exchange-Installer.exe"),Environment.GetEnvironmentVariable("TEMP") + "\\EXCHANGE.exe");
+            Process.Start(Environment.GetEnvironmentVariable("TEMP") + "\\EXCHANGE.exe");
+            Environment.Exit(0);
         }
     }
 }
