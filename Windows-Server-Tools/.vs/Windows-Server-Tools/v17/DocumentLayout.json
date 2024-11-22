@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -54,7 +58,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 389,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -90,7 +94,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
+              "Title": "app.manifest",
+              "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\app.manifest",
+              "RelativeDocumentMoniker": "Exchange-Installer\\app.manifest",
+              "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\app.manifest",
+              "RelativeToolTip": "Exchange-Installer\\app.manifest",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2024-11-21T23:22:59.682Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Functions.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Functions.cs",
               "RelativeDocumentMoniker": "Exchange-Installer\\Functions.cs",
@@ -103,32 +119,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs",
               "RelativeDocumentMoniker": "Exchange-Installer\\Form1.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs",
               "RelativeToolTip": "Exchange-Installer\\Form1.cs",
-              "ViewState": "AgIAADEAAAAAAAAAAAAkwEwAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAkwFUAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T19:40:01.936Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs",
               "RelativeDocumentMoniker": "Exchange-Installer\\Form1.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs [Design]",
               "RelativeToolTip": "Exchange-Installer\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T19:38:17.871Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-21T19:38:17.871Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\MainWindow.xaml.cs",
@@ -136,12 +151,11 @@
               "RelativeToolTip": "Windows-Server-Tools\\MainWindow.xaml.cs",
               "ViewState": "AgIAAG4AAAAAAAAAAAAjwI4AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-05T16:41:52.605Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-05T16:41:52.605Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "CommonlyInstalledWindowsComponents.xaml.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\CommonlyInstalledWindowsComponents.xaml.cs",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\CommonlyInstalledWindowsComponents.xaml.cs",
@@ -149,24 +163,22 @@
               "RelativeToolTip": "Windows-Server-Tools\\CommonlyInstalledWindowsComponents.xaml.cs",
               "ViewState": "AgIAAA4AAAAAAAAAAAAuwCYAAAATAgAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-05T23:52:47.388Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T23:52:47.388Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "CommonlyInstalledWindowsComponents.xaml",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\CommonlyInstalledWindowsComponents.xaml",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\CommonlyInstalledWindowsComponents.xaml",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\CommonlyInstalledWindowsComponents.xaml",
               "RelativeToolTip": "Windows-Server-Tools\\CommonlyInstalledWindowsComponents.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-10-05T23:52:32.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T23:52:32.688Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "app.manifest",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\app.manifest",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\app.manifest",
@@ -174,12 +186,11 @@
               "RelativeToolTip": "Windows-Server-Tools\\app.manifest",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
-              "WhenOpened": "2024-10-05T23:21:51.838Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-05T23:21:51.838Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "Data.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Data.cs",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\Data.cs",
@@ -187,12 +198,11 @@
               "RelativeToolTip": "Windows-Server-Tools\\Data.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-21T18:44:47.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-21T18:44:47.876Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Functions.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Functions.cs",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\Functions.cs",
@@ -200,32 +210,29 @@
               "RelativeToolTip": "Windows-Server-Tools\\Functions.cs",
               "ViewState": "AgIAAEYAAAAAAAAAAAA5wF8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T14:42:41.36Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-18T14:42:41.36Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\App.xaml",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\App.xaml",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\App.xaml",
               "RelativeToolTip": "Windows-Server-Tools\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-06T00:41:41.516Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-06T00:41:41.516Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\MainWindow.xaml",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\MainWindow.xaml",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\MainWindow.xaml",
               "RelativeToolTip": "Windows-Server-Tools\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-05T16:41:53.395Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-05T16:41:53.395Z"
             }
           ]
         }

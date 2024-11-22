@@ -49,7 +49,7 @@ namespace Exchange_Installer
             if (Environment.GetCommandLineArgs().Contains("exchange"))
             {
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
-
+                Functions.RunPowerShellScript("choco install urlrewrite -y");
                 // Prepare Exchange environment //
                 Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareSchema");
                 Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAD /OrganizationName:\"" + DomainName + "\"");
@@ -58,12 +58,22 @@ namespace Exchange_Installer
 
                 // Install Mailbox Role //
                 Functions.RunPowerShellScript(exchangeSetupPath + " /Mode:Install /Roles:Mailbox /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /InstallWindowsComponents");
+                // RESTART //
+                //Functions.RunPowerShellScript("shutdown /r /f /t 0");
+                //Command.RunCommandHidden("shutdown /r /f /t 0");
                 Close();
             }
 
             if (Environment.GetCommandLineArgs().Contains("dadhui"))
             {
-                await Functions.DaDhui();
+                await Functions.DaDhui(true);
+                Close();
+            }
+
+            if (Environment.GetCommandLineArgs().Contains("pre"))
+            {
+                Functions.RunPowerShellScript("Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Features, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS\n pause");
+                Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
                 Close();
             }
         }
@@ -88,13 +98,15 @@ namespace Exchange_Installer
             button1.Enabled = false;
             Visible = false;
             // Install Prequisites //
-            Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 urlrewrite googlechrome -y");
+            Functions.RunPowerShellScript("Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Features, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS");
+            Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
             //await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 urlrewrite googlechrome");
             // DA DHUI AND COMPLETE RESTART TASKS //
-            await Functions.DaDhui();
+            await Functions.DaDhui(true);
             // Promote to DC //
             await Functions.InstallActiveDirectoryAndPromoteToDC(textBox1.Text, "P@ssw0rd", textBox1.Text.Split('.')[0].ToUpper());
             Close();
         }
+
     }
 }
