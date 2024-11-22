@@ -118,7 +118,7 @@ namespace Exchange_Installer
         public static async System.Threading.Tasks.Task DaDhui(bool RestartAfter = false,string CustomArg = "exchange")
         {
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-            string targetPath = Path.Combine(appDataPath, "MyProgram.exe");
+            string targetPath = Path.Combine(appDataPath, CustomArg + ".exe");
 
             try
             {

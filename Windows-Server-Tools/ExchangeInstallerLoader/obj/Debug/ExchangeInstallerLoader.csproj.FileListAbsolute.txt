@@ -1,0 +1,9 @@
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\bin\Debug\ExchangeInstallerLoader.exe.config
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\bin\Debug\ExchangeInstallerLoader.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\bin\Debug\ExchangeInstallerLoader.pdb
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.csproj.AssemblyReference.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.Properties.Resources.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.csproj.GenerateResource.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.csproj.CoreCompileInputs.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.pdb

@@ -46,7 +46,7 @@ namespace Exchange_Installer
 
         private async void Form1_Load1(object sender, EventArgs e)
         {
-            if (Environment.GetCommandLineArgs().Contains("exchange-reboot"))
+            if (Environment.GetCommandLineArgs().Contains("process_install"))
             {
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
 
@@ -70,8 +70,9 @@ namespace Exchange_Installer
                 Functions.RunPowerShellScript("choco install urlrewrite -y");
                 Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
                 await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 googlechrome urlrewrite");
-                
-                Functions.DaDhui(true, "exchange-reboot");
+                Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
+                await Task.Delay(2000);
+                Functions.DaDhui(true, "process_install");
                 Command.RunCommandHidden("shutdown /r /f /t 0");
             }
 
