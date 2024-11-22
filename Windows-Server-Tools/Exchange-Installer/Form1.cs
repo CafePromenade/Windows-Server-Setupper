@@ -46,10 +46,10 @@ namespace Exchange_Installer
 
         private async void Form1_Load1(object sender, EventArgs e)
         {
-            if (Environment.GetCommandLineArgs().Contains("exchange"))
+            if (Environment.GetCommandLineArgs().Contains("exchange-reboot"))
             {
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
-                Functions.RunPowerShellScript("choco install urlrewrite -y");
+
                 // Prepare Exchange environment //
                 Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareSchema");
                 Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAD /OrganizationName:\"" + DomainName + "\"");
@@ -63,6 +63,19 @@ namespace Exchange_Installer
                 //Command.RunCommandHidden("shutdown /r /f /t 0");
                 Close();
             }
+
+            if (Environment.GetCommandLineArgs().Contains("exchange"))
+            {
+                string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
+                Functions.RunPowerShellScript("choco install urlrewrite -y");
+                Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
+                await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 googlechrome urlrewrite");
+                
+                Functions.DaDhui(true, "exchange-reboot");
+                Command.RunCommandHidden("shutdown /r /f /t 0");
+            }
+
+            
 
             if (Environment.GetCommandLineArgs().Contains("dadhui"))
             {

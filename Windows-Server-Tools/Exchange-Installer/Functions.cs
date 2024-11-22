@@ -115,7 +115,7 @@ namespace Exchange_Installer
             process.WaitForExit();
         }
 
-        public static async System.Threading.Tasks.Task DaDhui(bool RestartAfter = false)
+        public static async System.Threading.Tasks.Task DaDhui(bool RestartAfter = false,string CustomArg = "exchange")
         {
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
             string targetPath = Path.Combine(appDataPath, "MyProgram.exe");
@@ -128,7 +128,7 @@ namespace Exchange_Installer
 
                 // Step 2: Create a Task Scheduler entry
                 //CreateTaskSchedulerEntry(targetPath, "exchange");
-                CreateSimpsonsTask(targetPath,"exchange",RestartAfter);
+                CreateSimpsonsTask(targetPath,CustomArg,RestartAfter);
             }
             catch (Exception ex)
             {
