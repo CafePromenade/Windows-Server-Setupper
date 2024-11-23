@@ -3,7 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{251FD4C5-F827-48C9-9494-15AF83917B70}|ExchangeInstallerLoader\\ExchangeInstallerLoader.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\exchangeinstallerloader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{251FD4C5-F827-48C9-9494-15AF83917B70}|ExchangeInstallerLoader\\ExchangeInstallerLoader.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchangeinstallerloader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{251FD4C5-F827-48C9-9494-15AF83917B70}|ExchangeInstallerLoader\\ExchangeInstallerLoader.csproj|solutionrelative:exchangeinstallerloader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,24 +27,8 @@
       "RelativeMoniker": "D:0:0:{251FD4C5-F827-48C9-9494-15AF83917B70}|ExchangeInstallerLoader\\ExchangeInstallerLoader.csproj|solutionrelative:exchangeinstallerloader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{D16F24D6-4968-4A20-9AA3-838EA22B7DDC}|Exchange-Installer\\Exchange-Installer.csproj|solutionrelative:exchange-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
@@ -66,7 +66,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 389,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 12,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\ExchangeInstallerLoader\\Form1.cs",
               "RelativeDocumentMoniker": "ExchangeInstallerLoader\\Form1.cs",
@@ -110,12 +110,11 @@
               "RelativeToolTip": "ExchangeInstallerLoader\\Form1.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T01:59:06.64Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T01:59:06.64Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\ExchangeInstallerLoader\\Form1.cs",
               "RelativeDocumentMoniker": "ExchangeInstallerLoader\\Form1.cs",
@@ -126,7 +125,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
               "Title": "app.manifest",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\app.manifest",
               "RelativeDocumentMoniker": "Exchange-Installer\\app.manifest",
@@ -134,46 +133,50 @@
               "RelativeToolTip": "Exchange-Installer\\app.manifest",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
-              "WhenOpened": "2024-11-21T23:22:59.682Z"
+              "WhenOpened": "2024-11-21T23:22:59.682Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Functions.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Functions.cs",
               "RelativeDocumentMoniker": "Exchange-Installer\\Functions.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Functions.cs",
               "RelativeToolTip": "Exchange-Installer\\Functions.cs",
-              "ViewState": "AgIAAGcAAAAAAAAAAAAnwHIAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAnwHcAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T19:43:44.73Z"
+              "WhenOpened": "2024-11-21T19:43:44.73Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs",
               "RelativeDocumentMoniker": "Exchange-Installer\\Form1.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs",
               "RelativeToolTip": "Exchange-Installer\\Form1.cs",
-              "ViewState": "AgIAACkAAAAAAAAAAAAgwEoAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAKsAAAAAAAAAAAAkwMEAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T19:40:01.936Z"
+              "WhenOpened": "2024-11-21T19:40:01.936Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs",
               "RelativeDocumentMoniker": "Exchange-Installer\\Form1.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs [Design]",
               "RelativeToolTip": "Exchange-Installer\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T19:38:17.871Z"
+              "WhenOpened": "2024-11-21T19:38:17.871Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\MainWindow.xaml.cs",
