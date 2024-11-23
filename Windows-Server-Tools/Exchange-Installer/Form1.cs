@@ -136,10 +136,20 @@ namespace Exchange_Installer
             if (Environment.GetCommandLineArgs().Contains("exchange"))
             {
                 Visible = false;
+                OKButton.Enabled = false;
+                DomainNameLabel.Text = "Prerequisites in progress";
+                await Task.Delay(1000);
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
                 //await Functions.RunPowerShellScript("choco install urlrewrite -y");
                 //await Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
-                await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 googlechrome urlrewrite");
+                DomainNameLabel.Text = "Visual C++ & DotNet";
+                await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140");
+                DomainNameLabel.Text = "Unified Communications API";
+                await Chocolatey.ChocolateyDownload("ucma4");
+                DomainNameLabel.Text = "IIS URL Rewrite";
+                await Chocolatey.ChocolateyDownload("urlrewrite");
+                DomainNameLabel.Text = "Stuff";
+                await Chocolatey.ChocolateyDownload("googlechrome");
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
                 await Task.Delay(2000);
                 Functions.DaDhui(true, "process_install");
