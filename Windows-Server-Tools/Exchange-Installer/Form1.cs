@@ -108,6 +108,10 @@ namespace Exchange_Installer
         {
             if (Environment.GetCommandLineArgs().Contains("process_install"))
             {
+                // Clear Pending Reboots //
+                await Functions.RunPowerShellScript("Remove-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager' -Name 'PendingFileRenameOperations' -Force");
+                // Install UCMA4 again //
+                await Functions.RunPowerShellScript("choco install ucma4 --force -y");
                 OKButton.Enabled = false;
                 textBox1.Enabled = false;
                 File.WriteAllText(SecondStepTimeFile,DateTime.Now.ToString("O"));
@@ -131,6 +135,8 @@ namespace Exchange_Installer
                 RetrieveTimes();
                 // DELETE TASK //
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
+                DomainNameLabel.Text = "Stuff";
+                await Chocolatey.ChocolateyDownload("googlechrome");
                 DoNotClose = false;
                 DomainNameLabel.Text = "Exchange Server 2019 installed";
             }
@@ -150,8 +156,6 @@ namespace Exchange_Installer
                 await Chocolatey.ChocolateyDownload("ucma4");
                 DomainNameLabel.Text = "IIS URL Rewrite";
                 await Chocolatey.ChocolateyDownload("urlrewrite");
-                DomainNameLabel.Text = "Stuff";
-                await Chocolatey.ChocolateyDownload("googlechrome");
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
                 await Task.Delay(2000);
                 Functions.DaDhui(true, "process_install");
