@@ -111,7 +111,10 @@ namespace Exchange_Installer
                 // Clear Pending Reboots //
                 await Functions.RunPowerShellScript("Remove-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager' -Name 'PendingFileRenameOperations' -Force");
                 // Install UCMA4 again //
-                await Functions.RunPowerShellScript("choco install ucma4 --force -y");
+                if (!Directory.Exists("C:\\Program Files\\Microsoft UCMA 4.0"))
+                {
+                    await Functions.RunPowerShellScript("choco install ucma4 --force -y"); 
+                }
                 OKButton.Enabled = false;
                 textBox1.Enabled = false;
                 File.WriteAllText(SecondStepTimeFile,DateTime.Now.ToString("O"));
