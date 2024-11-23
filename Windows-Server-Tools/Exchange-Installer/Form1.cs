@@ -133,6 +133,15 @@ namespace Exchange_Installer
                 DomainNameLabel.Text = "INSTALLING EXCHANGE SERVER 2019";
                 // Install Mailbox Role //
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /Mode:Install /Roles:Mailbox /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /InstallWindowsComponents");
+
+                // 500 Error //
+                DomainNameLabel.Text = "Configuring Mailbox...";
+                if (Directory.Exists(@"C:\Program Files\Microsoft\Exchange Server\V15\Bin\"))
+                {
+                    string ExchangeBinDir = "C:\\Program Files\\Microsoft\\Exchange Server\\V15\\Bin";
+                    await Functions.RunPowerShellScript(File.ReadAllText(ExchangeBinDir + "\\UpdateCas.ps1"));
+                    await Functions.RunPowerShellScript(File.ReadAllText(ExchangeBinDir + "\\UpdateConfigFiles.ps1"));
+                }
                 // Save Time Lapse //
                 File.WriteAllText(ThirdStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
