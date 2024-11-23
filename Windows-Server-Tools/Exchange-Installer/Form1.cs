@@ -108,6 +108,8 @@ namespace Exchange_Installer
         {
             if (Environment.GetCommandLineArgs().Contains("process_install"))
             {
+                OKButton.Enabled = false;
+                textBox1.Enabled = false;
                 File.WriteAllText(SecondStepTimeFile,DateTime.Now.ToString("O"));
                 RetrieveTimes();
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";

@@ -44,7 +44,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 77);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(759, 26);
+            this.textBox1.Size = new System.Drawing.Size(1079, 26);
             this.textBox1.TabIndex = 0;
             // 
             // OKButton
@@ -60,9 +60,10 @@
             // DomainNameLabel
             // 
             this.DomainNameLabel.AutoSize = true;
-            this.DomainNameLabel.Location = new System.Drawing.Point(226, 19);
+            this.DomainNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.DomainNameLabel.Location = new System.Drawing.Point(12, 21);
             this.DomainNameLabel.Name = "DomainNameLabel";
-            this.DomainNameLabel.Size = new System.Drawing.Size(211, 20);
+            this.DomainNameLabel.Size = new System.Drawing.Size(425, 37);
             this.DomainNameLabel.TabIndex = 2;
             this.DomainNameLabel.Text = "Please enter a domain name";
             // 
@@ -100,7 +101,7 @@
             // 
             this.MainProgressBar.Location = new System.Drawing.Point(463, 109);
             this.MainProgressBar.Name = "MainProgressBar";
-            this.MainProgressBar.Size = new System.Drawing.Size(308, 47);
+            this.MainProgressBar.Size = new System.Drawing.Size(628, 47);
             this.MainProgressBar.TabIndex = 6;
             // 
             // FirstToSecondLabel
@@ -141,7 +142,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(777, 464);
+            this.ClientSize = new System.Drawing.Size(1103, 464);
             this.Controls.Add(this.FirstToThirdLabel);
             this.Controls.Add(this.SecondToThirdLabel);
             this.Controls.Add(this.FirstToSecondLabel);
