@@ -39,6 +39,8 @@
             this.SecondToThirdLabel = new System.Windows.Forms.Label();
             this.FirstToThirdLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.FourthStepTimeLabel = new System.Windows.Forms.Label();
+            this.FullyReadyTimeLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -141,18 +143,41 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(299, 457);
+            this.label1.Location = new System.Drawing.Point(301, 562);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(496, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "We do not guarantee success installs, we are not responsible if it fails";
+            // 
+            // FourthStepTimeLabel
+            // 
+            this.FourthStepTimeLabel.AutoSize = true;
+            this.FourthStepTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.FourthStepTimeLabel.Location = new System.Drawing.Point(56, 448);
+            this.FourthStepTimeLabel.Name = "FourthStepTimeLabel";
+            this.FourthStepTimeLabel.Size = new System.Drawing.Size(45, 36);
+            this.FourthStepTimeLabel.TabIndex = 11;
+            this.FourthStepTimeLabel.Text = "---";
+            // 
+            // FullyReadyTimeLabel
+            // 
+            this.FullyReadyTimeLabel.AutoSize = true;
+            this.FullyReadyTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.FullyReadyTimeLabel.ForeColor = System.Drawing.Color.Red;
+            this.FullyReadyTimeLabel.Location = new System.Drawing.Point(58, 500);
+            this.FullyReadyTimeLabel.Name = "FullyReadyTimeLabel";
+            this.FullyReadyTimeLabel.Size = new System.Drawing.Size(33, 25);
+            this.FullyReadyTimeLabel.TabIndex = 12;
+            this.FullyReadyTimeLabel.Text = "---";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1103, 507);
+            this.ClientSize = new System.Drawing.Size(1103, 611);
+            this.Controls.Add(this.FullyReadyTimeLabel);
+            this.Controls.Add(this.FourthStepTimeLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FirstToThirdLabel);
             this.Controls.Add(this.SecondToThirdLabel);
@@ -186,6 +211,8 @@
         private System.Windows.Forms.Label SecondToThirdLabel;
         private System.Windows.Forms.Label FirstToThirdLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label FourthStepTimeLabel;
+        private System.Windows.Forms.Label FullyReadyTimeLabel;
     }
 }
 

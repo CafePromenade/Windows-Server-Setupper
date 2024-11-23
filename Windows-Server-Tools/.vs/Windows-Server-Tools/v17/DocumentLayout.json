@@ -155,7 +155,7 @@
               "RelativeDocumentMoniker": "Exchange-Installer\\Form1.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs",
               "RelativeToolTip": "Exchange-Installer\\Form1.cs",
-              "ViewState": "AgIAAHcAAAAAAAAAAAAnwJQAAABaAAAAAAAAAA==",
+              "ViewState": "AgIAAGEAAAAAAAAAAAAnwHQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T19:40:01.936Z",
               "EditorCaption": ""
@@ -169,7 +169,8 @@
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs [Design]",
               "RelativeToolTip": "Exchange-Installer\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T19:38:17.871Z"
+              "WhenOpened": "2024-11-21T19:38:17.871Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",

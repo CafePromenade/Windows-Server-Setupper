@@ -2,15 +2,18 @@ C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Win
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\Windows-Server-Tools.exe
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\Windows-Server-Tools.pdb
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\Microsoft.Win32.TaskScheduler.xml
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\Microsoft.Xaml.Behaviors.xml
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\System.CodeDom.xml
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools.csproj.AssemblyReference.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\CommonlyInstalledWindowsComponents.g.cs
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\MainWindow.g.cs
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\App.g.cs
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools_MarkupCompile.cache
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools_MarkupCompile.lref
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\App.baml
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\CommonlyInstalledWindowsComponents.baml
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\MainWindow.baml
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools.g.resources
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows_Server_Tools.Properties.Resources.resources
@@ -20,6 +23,3 @@ C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Win
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-.EB1C69BB.Up2Date
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools.exe
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\Windows-Server-Tools.pdb
-C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\bin\x64\Debug\Microsoft.Win32.TaskScheduler.xml
-C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\CommonlyInstalledWindowsComponents.g.cs
-C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Server-Tools\obj\x64\Debug\CommonlyInstalledWindowsComponents.baml

@@ -56,12 +56,14 @@ namespace Exchange_Installer
         string FirstStepTimeFile = Environment.GetEnvironmentVariable("APPDATA") + "\\FirstStepTimeFile.txt";
         string SecondStepTimeFile = Environment.GetEnvironmentVariable("APPDATA") + "\\SecondStepTimeFile.txt";
         string ThirdStepTimeFile = Environment.GetEnvironmentVariable("APPDATA") + "\\ThirdStepTimeFile.txt";
+        string FourthStepTimeFile = Environment.GetEnvironmentVariable("APPDATA") + "\\FourthStepTimeFile.txt";
 
         public void RetrieveTimes()
         {
             DateTime firstStepTime = DateTime.MinValue;
             DateTime secondStepTime = DateTime.MinValue;
             DateTime thirdStepTime = DateTime.MinValue;
+            DateTime fourthStepTime = DateTime.MinValue;
 
             // Retrieve and display FirstStepTime
             if (File.Exists(FirstStepTimeFile))
@@ -101,7 +103,18 @@ namespace Exchange_Installer
                     FirstToThirdLabel.Text = "Total Time Between Prerequisites and Exchange Installation: " + timeBetweenFirstAndThird.ToString();
                 }
             }
+
+            if(File.Exists(FourthStepTimeFile))
+            {
+                FourthStepTimeLabel.Text = "Ready to use since: " + fourthStepTime.ToString("T");
+                if (firstStepTime != DateTime.MinValue)
+                {
+                    TimeSpan timeBetweenFirstAndFourth = fourthStepTime - firstStepTime;
+                    FullyReadyTimeLabel.Text = "From Start To Finish: " + timeBetweenFirstAndFourth.ToString();
+                }
+            }
         }
+
 
 
         private async void Form1_Load1(object sender, EventArgs e)
@@ -147,10 +160,27 @@ namespace Exchange_Installer
                 RetrieveTimes();
                 // DELETE TASK //
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
+                await Task.Delay(1500);
                 DomainNameLabel.Text = "Stuff";
                 await Chocolatey.ChocolateyDownload("googlechrome");
                 DoNotClose = false;
                 DomainNameLabel.Text = "Exchange Server 2019 installed";
+                await Functions.DaDhui(false, "post_install");
+                Command.RunCommandHidden("shutdown /r /f /t 0");
+            }
+
+            if (Environment.GetCommandLineArgs().Contains("post_install"))
+            {
+                DoNotClose = false;
+                try
+                {
+                    Process.Start(@"C:\Program Files\Google\Chrome\Application\chrome.exe", "https://localhost/ecp");
+                }
+                catch 
+                {
+                    
+                }
+                RetrieveTimes();
             }
 
             if (Environment.GetCommandLineArgs().Contains("exchange"))
