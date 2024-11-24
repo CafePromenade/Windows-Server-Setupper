@@ -143,24 +143,16 @@ namespace Exchange_Installer
 
         public static async Task InstallPrerequisitesParallel()
         {
-            // Install Windows features in parallel
-            var featuresTask = Task.Run(async () =>
-            {
-                await Functions.RunPowerShellScript(
-                    "Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Features, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS"
-                );
-            });
+            await Functions.RunPowerShellScript(
+                "Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Features, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS"
+            );
 
             // Install Chocolatey packages in parallel
-            var chocolateyTask = Task.Run(async () =>
+            string currentPath = Process.GetCurrentProcess().MainModule.FileName;
+            await Task.Run(async () =>
             {
-                await Task.Delay(30000);
-                string currentPath = Process.GetCurrentProcess().MainModule.FileName;
-                Process.Start(currentPath, "exchange");
+                Process.Start(currentPath, "exchange").WaitForExit();
             });
-
-            // Wait for both tasks to complete
-            await Task.WhenAll(featuresTask, chocolateyTask);
         }
 
         public static async Task ClearPendingReboots()

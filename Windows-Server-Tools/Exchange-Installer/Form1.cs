@@ -129,9 +129,6 @@ namespace Exchange_Installer
                 {
                     await Functions.RunPowerShellScript("choco install ucma4 --force -y"); 
                 }
-                DomainNameLabel.Text = "Validating Prequisites";
-                // Recheck Prequisites //
-                await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 urlrewrite");
                 await Functions.ClearPendingReboots();
                 File.WriteAllText(SecondStepTimeFile,DateTime.Now.ToString("O"));
                 RetrieveTimes();
@@ -140,6 +137,7 @@ namespace Exchange_Installer
                 // Prepare Exchange environment //
                 bool Schema = false, AD = false, AllDomain = false, Domain = false;
                 MainProgressBar.Maximum = 5;
+
                 DomainNameLabel.Text = "Preparing Schema";
                 //DomainNameLabel.Text = "";
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareSchema");
@@ -156,6 +154,7 @@ namespace Exchange_Installer
                 DomainNameLabel.Text = "INSTALLING EXCHANGE SERVER 2019";
                 // Install Mailbox Role //
                 Chocolatey.ChocolateyDownload("googlechrome");
+                await Functions.ClearPendingReboots();
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /Mode:Install /Roles:Mailbox /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /InstallWindowsComponents");
                 MainProgressBar.Value = 5;
 
