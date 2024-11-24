@@ -180,7 +180,7 @@ namespace Exchange_Installer
                 RetrieveTimes();
                 // DELETE TASK //
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
-                await Task.Delay(500);
+                await Task.Delay(2000);
                 DoNotClose = false;
                 DomainNameLabel.Text = "Exchange Server 2019 installed";
                 await Functions.DaDhui(false, "post_install");
