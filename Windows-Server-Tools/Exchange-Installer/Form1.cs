@@ -121,48 +121,67 @@ namespace Exchange_Installer
         {
             if (Environment.GetCommandLineArgs().Contains("process_install"))
             {
-                // Clear Pending Reboots //
-                await Functions.RunPowerShellScript("Remove-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager' -Name 'PendingFileRenameOperations' -Force");
+                OKButton.Enabled = false;
+                textBox1.Enabled = false;
+                await Functions.ClearPendingReboots();
                 // Install UCMA4 again //
                 if (!Directory.Exists("C:\\Program Files\\Microsoft UCMA 4.0"))
                 {
                     await Functions.RunPowerShellScript("choco install ucma4 --force -y"); 
                 }
-                OKButton.Enabled = false;
-                textBox1.Enabled = false;
+                DomainNameLabel.Text = "Validating Prequisites";
+                // Recheck Prequisites //
+                await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 urlrewrite");
+                await Functions.ClearPendingReboots();
                 File.WriteAllText(SecondStepTimeFile,DateTime.Now.ToString("O"));
                 RetrieveTimes();
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
 
                 // Prepare Exchange environment //
+                bool Schema = false, AD = false, AllDomain = false, Domain = false;
+                MainProgressBar.Maximum = 5;
                 DomainNameLabel.Text = "Preparing Schema";
+                //DomainNameLabel.Text = "";
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareSchema");
+                MainProgressBar.Value = 1;
                 DomainNameLabel.Text = "Preparing AD";
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAD /OrganizationName:\"" + DomainName + "\"");
+                MainProgressBar.Value = 2;
                 DomainNameLabel.Text = "Preparing All Domains";
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareAllDomains");
+                MainProgressBar.Value = 3;
                 DomainNameLabel.Text = "Preparing The Domain";
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareDomain:" + DomainName + "." + DomainCOM);
+                MainProgressBar.Value = 4;
                 DomainNameLabel.Text = "INSTALLING EXCHANGE SERVER 2019";
                 // Install Mailbox Role //
+                Chocolatey.ChocolateyDownload("googlechrome");
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /Mode:Install /Roles:Mailbox /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /InstallWindowsComponents");
+                MainProgressBar.Value = 5;
 
                 // 500 Error //
                 DomainNameLabel.Text = "Configuring Mailbox...";
                 if (Directory.Exists(@"C:\Program Files\Microsoft\Exchange Server\V15\Bin\"))
                 {
-                    string ExchangeBinDir = "C:\\Program Files\\Microsoft\\Exchange Server\\V15\\Bin";
-                    await Functions.RunPowerShellScript(File.ReadAllText(ExchangeBinDir + "\\UpdateCas.ps1"));
-                    await Functions.RunPowerShellScript(File.ReadAllText(ExchangeBinDir + "\\UpdateConfigFiles.ps1"));
+                    MainProgressBar.Style = ProgressBarStyle.Marquee;
+                    string ExchangeBinDir = Environment.GetEnvironmentVariable("TEMP");
+                    string UpdateCASPath = Path.Combine(ExchangeBinDir, "UpdateCas.ps1");
+                    string UpdateConfigPath = Path.Combine(ExchangeBinDir, "UpdateConfigFiles.ps1");
+
+                    // Write the script files to the TEMP directory
+                    File.WriteAllBytes(UpdateCASPath, Properties.Resources.UpdateCas);
+                    File.WriteAllBytes(UpdateConfigPath, Properties.Resources.UpdateConfigFiles);
+
+                    // Run the PowerShell scripts using shorter paths
+                    await Functions.RunPowerShellScript(UpdateCASPath);
+                    await Functions.RunPowerShellScript(UpdateConfigPath);
                 }
                 // Save Time Lapse //
                 File.WriteAllText(ThirdStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
                 // DELETE TASK //
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
-                await Task.Delay(1500);
-                DomainNameLabel.Text = "Stuff";
-                await Chocolatey.ChocolateyDownload("googlechrome");
+                await Task.Delay(500);
                 DoNotClose = false;
                 DomainNameLabel.Text = "Exchange Server 2019 installed";
                 await Functions.DaDhui(false, "post_install");
@@ -172,6 +191,7 @@ namespace Exchange_Installer
             if (Environment.GetCommandLineArgs().Contains("post_install"))
             {
                 DoNotClose = false;
+                Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
                 try
                 {
                     Process.Start(@"C:\Program Files\Google\Chrome\Application\chrome.exe", "https://localhost/ecp");
@@ -207,12 +227,30 @@ namespace Exchange_Installer
                 Environment.Exit(0);
             }
 
-            
+            if (Environment.GetCommandLineArgs().Contains("config"))
+            {
+                string ExchangeBinDir = Environment.GetEnvironmentVariable("TEMP");
+                string UpdateCASPath = Path.Combine(ExchangeBinDir, "UpdateCas.ps1");
+                string UpdateConfigPath = Path.Combine(ExchangeBinDir, "UpdateConfigFiles.ps1");
+
+                // Write the script files to the TEMP directory
+                File.WriteAllBytes(UpdateCASPath, Properties.Resources.UpdateCas);
+                File.WriteAllBytes(UpdateConfigPath, Properties.Resources.UpdateConfigFiles);
+
+                // Run the PowerShell scripts using shorter paths
+                await Functions.RunPowerShellScript(UpdateCASPath);
+                await Functions.RunPowerShellScript(UpdateConfigPath);
+
+                DoNotClose = false;
+                Close();
+            }
+
 
             if (Environment.GetCommandLineArgs().Contains("dadhui"))
             {
                 // DaDhui The Program //
                 await Functions.DaDhui(true);
+                DoNotClose = false;
                 Close();
             }
 
@@ -221,6 +259,7 @@ namespace Exchange_Installer
                 // Install Prerequisites //
                 await Functions.RunPowerShellScript("Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Features, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS\n pause");
                 await Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
+                DoNotClose = false;
                 Close();
             }
         }
@@ -253,16 +292,12 @@ namespace Exchange_Installer
                 OKButton.Enabled = false;
                 //Visible = false;
                 // Install Prequisites //
-                DomainNameLabel.Text = "Installing server roles";
-                await Functions.RunPowerShellScript("Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Features, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS");
-                // QUICKER PREREQUISITES //
-                string currentPath = Process.GetCurrentProcess().MainModule.FileName;
-                DomainNameLabel.Text = "Installing prerequisites";
-                await Task.Factory.StartNew(() =>
-                {
-                    Process.Start(currentPath, "exchange").WaitForExit();
-                });
-
+                DomainNameLabel.Text = "Installing server roles & Prequisites Using Parallel Technology";
+                await Functions.InstallPrerequisitesParallel();
+                // Enable Detailed Windows Stuff //
+                await Functions.RunPowerShellScript("# Enable Verbose Status Messages\r\nWrite-Host \"Enabling verbose status messages...\" -ForegroundColor Green\r\nNew-Item -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"VerboseStatus\" -Force | Out-Null\r\nSet-ItemProperty -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"VerboseStatus\" -Value 1\r\n\r\n# Enable Boot Logging\r\nWrite-Host \"Enabling boot logging...\" -ForegroundColor Green\r\nbcdedit /set bootlog Yes\r\n\r\n# Enable Group Policy Operational Logging\r\nWrite-Host \"Enabling Group Policy operational logging...\" -ForegroundColor Green\r\nNew-Item -Path \"HKLM:\\Software\\Microsoft NT\\CurrentVersion\\Diagnostics\" -Force | Out-Null\r\nSet-ItemProperty -Path \"HKLM:\\Software\\Microsoft NT\\CurrentVersion\\Diagnostics\" -Name \"GPSvcDebugLevel\" -Value 0x30002 -Type DWord\r\n\r\n# Confirm Changes\r\nWrite-Host \"All logging settings have been enabled. Please reboot your system to apply the changes.\" -ForegroundColor Cyan");
+                // Long Path Support //
+                await Functions.RunPowerShellScript("# Enable long path support in the Windows Registry\nWrite-Host \"Enabling long path support in the registry (unattended mode)...\" -ForegroundColor Green\nSet-ItemProperty -Path \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\" -Name \"LongPathsEnabled\" -Value 1 -Type DWord -ErrorAction Stop\n\n# Check and confirm the change\n$longPathsEnabled = Get-ItemProperty -Path \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\" -Name \"LongPathsEnabled\"\nif ($longPathsEnabled.LongPathsEnabled -eq 1) {\n    Write-Host \"Long path support has been successfully enabled in the registry.\" -ForegroundColor Cyan\n} else {\n    Write-Host \"Failed to enable long path support in the registry.\" -ForegroundColor Red\n    Exit 1\n}");
                 // Promote to DC //
                 DomainNameLabel.Text = "Promoting to domain";
                 await Functions.InstallActiveDirectoryAndPromoteToDC(textBox1.Text, "P@ssw0rd", textBox1.Text.Split('.')[0].ToUpper());
@@ -275,5 +310,9 @@ namespace Exchange_Installer
             }
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

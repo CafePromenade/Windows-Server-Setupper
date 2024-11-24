@@ -45,16 +45,18 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 77);
+            this.textBox1.Location = new System.Drawing.Point(16, 96);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(1079, 26);
+            this.textBox1.Size = new System.Drawing.Size(1613, 30);
             this.textBox1.TabIndex = 0;
             // 
             // OKButton
             // 
-            this.OKButton.Location = new System.Drawing.Point(12, 113);
+            this.OKButton.Location = new System.Drawing.Point(16, 141);
+            this.OKButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(425, 43);
+            this.OKButton.Size = new System.Drawing.Size(567, 54);
             this.OKButton.TabIndex = 1;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
@@ -64,7 +66,8 @@
             // 
             this.DomainNameLabel.AutoSize = true;
             this.DomainNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.DomainNameLabel.Location = new System.Drawing.Point(12, 21);
+            this.DomainNameLabel.Location = new System.Drawing.Point(16, 26);
+            this.DomainNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DomainNameLabel.Name = "DomainNameLabel";
             this.DomainNameLabel.Size = new System.Drawing.Size(425, 37);
             this.DomainNameLabel.TabIndex = 2;
@@ -74,7 +77,8 @@
             // 
             this.FirstStepLabel.AutoSize = true;
             this.FirstStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.FirstStepLabel.Location = new System.Drawing.Point(56, 173);
+            this.FirstStepLabel.Location = new System.Drawing.Point(75, 216);
+            this.FirstStepLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FirstStepLabel.Name = "FirstStepLabel";
             this.FirstStepLabel.Size = new System.Drawing.Size(45, 36);
             this.FirstStepLabel.TabIndex = 3;
@@ -84,7 +88,8 @@
             // 
             this.SecondStepLabel.AutoSize = true;
             this.SecondStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.SecondStepLabel.Location = new System.Drawing.Point(56, 234);
+            this.SecondStepLabel.Location = new System.Drawing.Point(75, 292);
+            this.SecondStepLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SecondStepLabel.Name = "SecondStepLabel";
             this.SecondStepLabel.Size = new System.Drawing.Size(45, 36);
             this.SecondStepLabel.TabIndex = 4;
@@ -94,7 +99,8 @@
             // 
             this.ThirdStepLabel.AutoSize = true;
             this.ThirdStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.ThirdStepLabel.Location = new System.Drawing.Point(56, 327);
+            this.ThirdStepLabel.Location = new System.Drawing.Point(75, 409);
+            this.ThirdStepLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ThirdStepLabel.Name = "ThirdStepLabel";
             this.ThirdStepLabel.Size = new System.Drawing.Size(45, 36);
             this.ThirdStepLabel.TabIndex = 5;
@@ -102,9 +108,10 @@
             // 
             // MainProgressBar
             // 
-            this.MainProgressBar.Location = new System.Drawing.Point(463, 109);
+            this.MainProgressBar.Location = new System.Drawing.Point(617, 136);
+            this.MainProgressBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MainProgressBar.Name = "MainProgressBar";
-            this.MainProgressBar.Size = new System.Drawing.Size(628, 47);
+            this.MainProgressBar.Size = new System.Drawing.Size(1013, 59);
             this.MainProgressBar.TabIndex = 6;
             // 
             // FirstToSecondLabel
@@ -112,7 +119,8 @@
             this.FirstToSecondLabel.AutoSize = true;
             this.FirstToSecondLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.FirstToSecondLabel.ForeColor = System.Drawing.Color.Red;
-            this.FirstToSecondLabel.Location = new System.Drawing.Point(58, 284);
+            this.FirstToSecondLabel.Location = new System.Drawing.Point(77, 355);
+            this.FirstToSecondLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FirstToSecondLabel.Name = "FirstToSecondLabel";
             this.FirstToSecondLabel.Size = new System.Drawing.Size(33, 25);
             this.FirstToSecondLabel.TabIndex = 7;
@@ -123,7 +131,8 @@
             this.SecondToThirdLabel.AutoSize = true;
             this.SecondToThirdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.SecondToThirdLabel.ForeColor = System.Drawing.Color.Red;
-            this.SecondToThirdLabel.Location = new System.Drawing.Point(58, 378);
+            this.SecondToThirdLabel.Location = new System.Drawing.Point(77, 472);
+            this.SecondToThirdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SecondToThirdLabel.Name = "SecondToThirdLabel";
             this.SecondToThirdLabel.Size = new System.Drawing.Size(33, 25);
             this.SecondToThirdLabel.TabIndex = 8;
@@ -134,7 +143,8 @@
             this.FirstToThirdLabel.AutoSize = true;
             this.FirstToThirdLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.FirstToThirdLabel.ForeColor = System.Drawing.Color.Red;
-            this.FirstToThirdLabel.Location = new System.Drawing.Point(58, 411);
+            this.FirstToThirdLabel.Location = new System.Drawing.Point(77, 514);
+            this.FirstToThirdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FirstToThirdLabel.Name = "FirstToThirdLabel";
             this.FirstToThirdLabel.Size = new System.Drawing.Size(33, 25);
             this.FirstToThirdLabel.TabIndex = 9;
@@ -143,17 +153,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(301, 562);
+            this.label1.Location = new System.Drawing.Point(477, 709);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(496, 20);
+            this.label1.Size = new System.Drawing.Size(608, 25);
             this.label1.TabIndex = 10;
             this.label1.Text = "We do not guarantee success installs, we are not responsible if it fails";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // FourthStepTimeLabel
             // 
             this.FourthStepTimeLabel.AutoSize = true;
             this.FourthStepTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.FourthStepTimeLabel.Location = new System.Drawing.Point(56, 448);
+            this.FourthStepTimeLabel.Location = new System.Drawing.Point(75, 560);
+            this.FourthStepTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FourthStepTimeLabel.Name = "FourthStepTimeLabel";
             this.FourthStepTimeLabel.Size = new System.Drawing.Size(45, 36);
             this.FourthStepTimeLabel.TabIndex = 11;
@@ -164,7 +177,8 @@
             this.FullyReadyTimeLabel.AutoSize = true;
             this.FullyReadyTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.FullyReadyTimeLabel.ForeColor = System.Drawing.Color.Red;
-            this.FullyReadyTimeLabel.Location = new System.Drawing.Point(58, 500);
+            this.FullyReadyTimeLabel.Location = new System.Drawing.Point(77, 625);
+            this.FullyReadyTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FullyReadyTimeLabel.Name = "FullyReadyTimeLabel";
             this.FullyReadyTimeLabel.Size = new System.Drawing.Size(33, 25);
             this.FullyReadyTimeLabel.TabIndex = 12;
@@ -172,10 +186,10 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1103, 611);
+            this.ClientSize = new System.Drawing.Size(1647, 764);
             this.Controls.Add(this.FullyReadyTimeLabel);
             this.Controls.Add(this.FourthStepTimeLabel);
             this.Controls.Add(this.label1);
@@ -189,7 +203,9 @@
             this.Controls.Add(this.DomainNameLabel);
             this.Controls.Add(this.OKButton);
             this.Controls.Add(this.textBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Windows Server";

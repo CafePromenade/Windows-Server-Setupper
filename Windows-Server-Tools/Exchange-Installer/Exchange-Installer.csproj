@@ -305,6 +305,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.manifest" />
     <None Include="packages.config" />
@@ -317,6 +318,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\UpdateCas.ps1" />
+    <None Include="Resources\UpdateConfigFiles.ps1" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
