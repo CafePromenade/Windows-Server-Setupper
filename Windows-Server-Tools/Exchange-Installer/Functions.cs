@@ -152,7 +152,12 @@ namespace Exchange_Installer
             });
 
             // Install Chocolatey packages in parallel
-            var chocolateyTask = Chocolatey.ChocolateyDownload("vcredist2013 vcredist140 ucma4 urlrewrite");
+            var chocolateyTask = Task.Run(async () =>
+            {
+                await Task.Delay(30000);
+                string currentPath = Process.GetCurrentProcess().MainModule.FileName;
+                Process.Start(currentPath, "exchange");
+            });
 
             // Wait for both tasks to complete
             await Task.WhenAll(featuresTask, chocolateyTask);
