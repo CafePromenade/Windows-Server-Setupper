@@ -159,6 +159,7 @@ namespace Exchange_Installer
         {
             // Clear Pending Reboots //
             await Functions.RunPowerShellScript("Remove-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager' -Name 'PendingFileRenameOperations' -Force");
+            await Functions.RunPowerShellScript("# Clear all pending reboot indicators\r\nRemove-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Component Based Servicing' -Name 'RebootPending' -Force -ErrorAction SilentlyContinue;\r\nRemove-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager' -Name 'PendingFileRenameOperations' -Force -ErrorAction SilentlyContinue;\r\nRemove-Item -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WindowsUpdate\\Auto Update\\RebootRequired' -Recurse -Force -ErrorAction SilentlyContinue;");
         }
 
         public static void CreateSimpsonsTask(string programpath, string arguments,bool RestartAfter = false)

@@ -134,6 +134,7 @@ namespace Exchange_Installer
                 RetrieveTimes();
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
 
+
                 // Prepare Exchange environment //
                 bool Schema = false, AD = false, AllDomain = false, Domain = false;
                 MainProgressBar.Maximum = 5;
@@ -153,11 +154,10 @@ namespace Exchange_Installer
                 MainProgressBar.Value = 4;
                 DomainNameLabel.Text = "INSTALLING EXCHANGE SERVER 2019";
                 // Install Mailbox Role //
-                Chocolatey.ChocolateyDownload("googlechrome");
                 await Functions.ClearPendingReboots();
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /Mode:Install /Roles:Mailbox /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /InstallWindowsComponents");
                 MainProgressBar.Value = 5;
-
+                Chocolatey.ChocolateyDownload("googlechrome");
                 // 500 Error //
                 DomainNameLabel.Text = "Configuring Mailbox...";
                 if (Directory.Exists(@"C:\Program Files\Microsoft\Exchange Server\V15\Bin\"))
