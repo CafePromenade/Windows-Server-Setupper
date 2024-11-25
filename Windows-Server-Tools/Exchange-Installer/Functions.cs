@@ -34,10 +34,11 @@ namespace Exchange_Installer
         public static async Task ChocoInstall(string SOFTWARE)
         {
             string ChocoPath = "C:\\ProgramData\\chocolatey\\bin\\choco.exe";
-            await Task.Run(() =>
-            {
-                Process.Start(ChocoPath, "install " + SOFTWARE + " -y --ignore-checksums").WaitForExit();
-            });
+            await RunPowerShellScript(ChocoPath + " install " + SOFTWARE + " -y --ignore-checksums");
+            //await Task.Run(() =>
+            //{
+            //    Process.Start(ChocoPath, "install " + SOFTWARE + " -y --ignore-checksums").WaitForExit();
+            //});
             //await Command.RunCommandHidden("\"C:\\ProgramData\\chocolatey\\bin\\choco.exe\" install " + SOFTWARE + " -y --ignore-checksums");
         }
         public static async Task InstallActiveDirectoryAndPromoteToDC(string domainName, string safeModeAdminPassword, string domainNetbiosName = "CONTOSO")
