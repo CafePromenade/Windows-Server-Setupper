@@ -123,6 +123,7 @@ namespace Exchange_Installer
             {
                 OKButton.Enabled = false;
                 textBox1.Enabled = false;
+                await Functions.SetStaticIP("8.8.8.8");
                 await Functions.ClearPendingReboots();
                 // Install UCMA4 again //
                 if (!Directory.Exists("C:\\Program Files\\Microsoft UCMA 4.0"))
@@ -297,8 +298,13 @@ namespace Exchange_Installer
                 await Functions.RunPowerShellScript("# Enable Verbose Status Messages\r\nWrite-Host \"Enabling verbose status messages...\" -ForegroundColor Green\r\nNew-Item -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"VerboseStatus\" -Force | Out-Null\r\nSet-ItemProperty -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"VerboseStatus\" -Value 1\r\n\r\n# Enable Boot Logging\r\nWrite-Host \"Enabling boot logging...\" -ForegroundColor Green\r\nbcdedit /set bootlog Yes\r\n\r\n# Enable Group Policy Operational Logging\r\nWrite-Host \"Enabling Group Policy operational logging...\" -ForegroundColor Green\r\nNew-Item -Path \"HKLM:\\Software\\Microsoft NT\\CurrentVersion\\Diagnostics\" -Force | Out-Null\r\nSet-ItemProperty -Path \"HKLM:\\Software\\Microsoft NT\\CurrentVersion\\Diagnostics\" -Name \"GPSvcDebugLevel\" -Value 0x30002 -Type DWord\r\n\r\n# Confirm Changes\r\nWrite-Host \"All logging settings have been enabled. Please reboot your system to apply the changes.\" -ForegroundColor Cyan");
                 // Long Path Support //
                 await Functions.RunPowerShellScript("# Enable long path support in the Windows Registry\nWrite-Host \"Enabling long path support in the registry (unattended mode)...\" -ForegroundColor Green\nSet-ItemProperty -Path \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\" -Name \"LongPathsEnabled\" -Value 1 -Type DWord -ErrorAction Stop\n\n# Check and confirm the change\n$longPathsEnabled = Get-ItemProperty -Path \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\" -Name \"LongPathsEnabled\"\nif ($longPathsEnabled.LongPathsEnabled -eq 1) {\n    Write-Host \"Long path support has been successfully enabled in the registry.\" -ForegroundColor Cyan\n} else {\n    Write-Host \"Failed to enable long path support in the registry.\" -ForegroundColor Red\n    Exit 1\n}");
-                // Promote to DC //
                 DomainNameLabel.Text = "Promoting to domain";
+                // DNS To ItSelf //
+                await Functions.SetStaticIP("127.0.0.1");
+                // DNS Forward //
+                await Functions.RunPowerShellScript("Add-DnsServerForwarder -IPAddress 8.8.8.8");
+                await Functions.RunPowerShellScript("Add-DnsServerForwarder -IPAddress 8.8.4.4");
+                // Promote to DC //
                 await Functions.InstallActiveDirectoryAndPromoteToDC(textBox1.Text, "P@ssw0rd", textBox1.Text.Split('.')[0].ToUpper());
                 DoNotClose = false;
                 Close(); 
