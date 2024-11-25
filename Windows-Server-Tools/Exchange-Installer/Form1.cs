@@ -213,11 +213,11 @@ namespace Exchange_Installer
                 //await Functions.RunPowerShellScript("choco install urlrewrite -y");
                 //await Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
                 DomainNameLabel.Text = "Visual C++ & DotNet";
-                await Chocolatey.ChocolateyDownload("vcredist2013 vcredist140");
+                await Functions.ChocoInstall("vcredist2013 vcredist140");
                 DomainNameLabel.Text = "Unified Communications API";
-                await Chocolatey.ChocolateyDownload("ucma4");
+                await Functions.ChocoInstall("ucma4");
                 DomainNameLabel.Text = "IIS URL Rewrite";
-                await Chocolatey.ChocolateyDownload("urlrewrite");
+                await Functions.ChocoInstall("urlrewrite");
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
                 await Task.Delay(2000);
                 Functions.DaDhui(true, "process_install");
