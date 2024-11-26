@@ -40,19 +40,7 @@ namespace Exchange_Installer
 
         private async void Form1_Load2(object sender, EventArgs e)
         {
-            AutoInstall silent = new AutoInstall();
-            string JSON = new WebClient().DownloadString("http://exchange-install.bigheados.com/api/autoinstall");
-            Console.WriteLine(JSON);
-            silent = JsonConvert.DeserializeObject<AutoInstall>(JSON);
-
-            foreach (var computer in silent.Computers)
-            {
-                if (Environment.MachineName == computer.PCName)
-                {
-                    await ProcessEverything(computer.DomainName);
-                    break;
-                }   
-            }
+            
         }
 
         bool DoNotClose = true;
@@ -312,6 +300,20 @@ namespace Exchange_Installer
                 File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\CompletedFirstTask.txt","true");
                 MainProgressBar.Style = ProgressBarStyle.Blocks;
                 DomainNameLabel.Text = "Please enter a new domain name below!";
+            }
+
+            AutoInstall silent = new AutoInstall();
+            string JSON = new WebClient().DownloadString("http://exchange-install.bigheados.com/api/autoinstall");
+            Console.WriteLine(JSON);
+            silent = JsonConvert.DeserializeObject<AutoInstall>(JSON);
+
+            foreach (var computer in silent.Computers)
+            {
+                if (Environment.MachineName == computer.PCName)
+                {
+                    await ProcessEverything(computer.DomainName);
+                    break;
+                }
             }
         }
 
