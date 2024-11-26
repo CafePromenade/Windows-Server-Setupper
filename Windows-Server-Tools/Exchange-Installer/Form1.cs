@@ -231,6 +231,9 @@ namespace Exchange_Installer
             {
                 DoNotClose = false;
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
+                await Functions.RunPowerShellScript("Get-Service | Where-Object {$_.DisplayName -like \"*Exchange*\"} | ForEach-Object {\r\n    Set-Service -Name $_.Name -StartupType Automatic\r\n}\r\n");
+                await Functions.RunPowerShellScript("Get-Service | Where-Object {$_.DisplayName -like \"*Exchange*\" -and $_.Status -ne \"Running\"} | ForEach-Object {\r\n    Start-Service -Name $_.Name\r\n}\r\n");
+                //await Command.RunCommand("iisreset");
                 try
                 {
                     Process.Start(@"C:\Program Files\Google\Chrome\Application\chrome.exe", "https://localhost/ecp");
