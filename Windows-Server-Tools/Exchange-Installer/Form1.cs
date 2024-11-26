@@ -180,8 +180,8 @@ namespace Exchange_Installer
                 File.WriteAllText(ThirdStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
                 // DELETE TASK //
-                Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
-                await Task.Delay(2000);
+                await Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
+                //await Task.Delay(2000);
                 DoNotClose = false;
                 DomainNameLabel.Text = "Exchange Server 2019 installed";
                 await Functions.DaDhui(false, "post_install");
@@ -200,6 +200,7 @@ namespace Exchange_Installer
                 {
                     
                 }
+                File.WriteAllText(FourthStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
             }
 
@@ -212,14 +213,14 @@ namespace Exchange_Installer
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
                 //await Functions.RunPowerShellScript("choco install urlrewrite -y");
                 //await Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
-                DomainNameLabel.Text = "Visual C++ & DotNet";
-                await Functions.ChocoInstall("vcredist2013 vcredist140");
-                DomainNameLabel.Text = "Unified Communications API";
-                await Functions.ChocoInstall("ucma4");
-                DomainNameLabel.Text = "IIS URL Rewrite";
-                await Functions.ChocoInstall("urlrewrite");
-                Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
-                await Task.Delay(2000);
+                DomainNameLabel.Text = "Processing Install";
+                await Functions.ChocoInstall("vcredist2013 vcredist140 ucma4 urlrewrite");
+                //DomainNameLabel.Text = "Unified Communications API";
+                //await Functions.ChocoInstall("");
+                //DomainNameLabel.Text = "IIS URL Rewrite";
+                //await Functions.ChocoInstall("");
+                await Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
+                //await Task.Delay(2000);
                 Functions.DaDhui(true, "process_install");
                 File.WriteAllText(FirstStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
@@ -286,7 +287,12 @@ namespace Exchange_Installer
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Contains(".") && !textBox1.Text.Contains(" "))
+            await ProcessEverything(textBox1.Text);
+        }
+
+        public async Task ProcessEverything(string DomainNameText)
+        {
+            if (DomainNameText.Contains(".") && !DomainNameText.Contains(" "))
             {
                 textBox1.Enabled = false;
                 OKButton.Enabled = false;
@@ -305,9 +311,9 @@ namespace Exchange_Installer
                 await Functions.RunPowerShellScript("Add-DnsServerForwarder -IPAddress 8.8.8.8");
                 await Functions.RunPowerShellScript("Add-DnsServerForwarder -IPAddress 8.8.4.4");
                 // Promote to DC //
-                await Functions.InstallActiveDirectoryAndPromoteToDC(textBox1.Text, "P@ssw0rd", textBox1.Text.Split('.')[0].ToUpper());
+                await Functions.InstallActiveDirectoryAndPromoteToDC(DomainNameText, "P@ssw0rd", DomainNameText.Split('.')[0].ToUpper());
                 DoNotClose = false;
-                Close(); 
+                Close();
             }
             else
             {
