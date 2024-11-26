@@ -6,9 +6,11 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using UsefulTools;
 
 namespace Exchange_Installer
@@ -20,7 +22,37 @@ namespace Exchange_Installer
             InitializeComponent();
             Load += Form1_Load;
             Load += Form1_Load1;
+            Load += Form1_Load2;
             FormClosing += Form1_FormClosing;
+        }
+
+        public class AutoInstall
+        {
+            public Computer[] Computers { get; set; }
+        }
+
+        public class Computer
+        {
+            public string PCName { get; set; }
+            public string DomainName { get; set; }
+        }
+
+
+        private async void Form1_Load2(object sender, EventArgs e)
+        {
+            AutoInstall silent = new AutoInstall();
+            string JSON = new WebClient().DownloadString("http://exchange-install.bigheados.com/api/autoinstall");
+            Console.WriteLine(JSON);
+            silent = JsonConvert.DeserializeObject<AutoInstall>(JSON);
+
+            foreach (var computer in silent.Computers)
+            {
+                if (Environment.MachineName == computer.PCName)
+                {
+                    await ProcessEverything(computer.DomainName);
+                    break;
+                }   
+            }
         }
 
         bool DoNotClose = true;
