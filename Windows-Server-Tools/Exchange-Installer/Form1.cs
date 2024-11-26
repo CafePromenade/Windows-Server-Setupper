@@ -139,6 +139,26 @@ namespace Exchange_Installer
 
         private async void Form1_Load1(object sender, EventArgs e)
         {
+            
+        }
+
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            if (!File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\CompletedFirstTask.txt"))
+            {
+                // Setup and initialize windows before installing everything //
+                MainProgressBar.Style = ProgressBarStyle.Marquee;
+                DomainNameLabel.Text = "Windows is updating, will be ready shortly!";
+                OKButton.Enabled = false;
+                OKButton.Text = "Please wait...";
+                await Functions.SolveWindowsTasks();
+                OKButton.Enabled = true;
+                OKButton.Text = "OK"; 
+                File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\CompletedFirstTask.txt","true");
+                MainProgressBar.Style = ProgressBarStyle.Blocks;
+                DomainNameLabel.Text = "Please enter a new domain name below!";
+            }
+
             if (Environment.GetCommandLineArgs().Contains("process_install"))
             {
                 OKButton.Enabled = false;
@@ -148,10 +168,10 @@ namespace Exchange_Installer
                 // Install UCMA4 again //
                 if (!Directory.Exists("C:\\Program Files\\Microsoft UCMA 4.0"))
                 {
-                    await Functions.RunPowerShellScript("choco install ucma4 --force -y"); 
+                    await Functions.RunPowerShellScript("choco install ucma4 --force -y");
                 }
                 await Functions.ClearPendingReboots();
-                File.WriteAllText(SecondStepTimeFile,DateTime.Now.ToString("O"));
+                File.WriteAllText(SecondStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
 
@@ -207,8 +227,7 @@ namespace Exchange_Installer
                 await Functions.DaDhui(false, "post_install");
                 Command.RunCommandHidden("shutdown /r /f /t 0");
             }
-
-            if (Environment.GetCommandLineArgs().Contains("post_install"))
+            else if (Environment.GetCommandLineArgs().Contains("post_install"))
             {
                 DoNotClose = false;
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
@@ -216,15 +235,14 @@ namespace Exchange_Installer
                 {
                     Process.Start(@"C:\Program Files\Google\Chrome\Application\chrome.exe", "https://localhost/ecp");
                 }
-                catch 
+                catch
                 {
-                    
+
                 }
                 File.WriteAllText(FourthStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
             }
-
-            if (Environment.GetCommandLineArgs().Contains("exchange"))
+            else if (Environment.GetCommandLineArgs().Contains("exchange"))
             {
                 Visible = false;
                 OKButton.Enabled = false;
@@ -247,8 +265,7 @@ namespace Exchange_Installer
                 DoNotClose = false;
                 Environment.Exit(0);
             }
-
-            if (Environment.GetCommandLineArgs().Contains("config"))
+            else if (Environment.GetCommandLineArgs().Contains("config"))
             {
                 string ExchangeBinDir = Environment.GetEnvironmentVariable("TEMP");
                 string UpdateCASPath = Path.Combine(ExchangeBinDir, "UpdateCas.ps1");
@@ -265,17 +282,14 @@ namespace Exchange_Installer
                 DoNotClose = false;
                 Close();
             }
-
-
-            if (Environment.GetCommandLineArgs().Contains("dadhui"))
+            else if (Environment.GetCommandLineArgs().Contains("dadhui"))
             {
                 // DaDhui The Program //
                 await Functions.DaDhui(true);
                 DoNotClose = false;
                 Close();
             }
-
-            if (Environment.GetCommandLineArgs().Contains("pre"))
+            else if (Environment.GetCommandLineArgs().Contains("pre"))
             {
                 // Install Prerequisites //
                 await Functions.RunPowerShellScript("Install-WindowsFeature Server-Media-Foundation, NET-Framework-45-Features, RPC-over-HTTP-proxy, RSAT-Clustering, RSAT-Clustering-CmdInterface, RSAT-Clustering-Mgmt, RSAT-Clustering-PowerShell, WAS-Process-Model, Web-Asp-Net45, Web-Basic-Auth, Web-Client-Auth, Web-Digest-Auth, Web-Dir-Browsing, Web-Dyn-Compression, Web-Http-Errors, Web-Http-Logging, Web-Http-Redirect, Web-Http-Tracing, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Metabase, Web-Mgmt-Console, Web-Mgmt-Service, Web-Net-Ext45, Web-Request-Monitor, Web-Server, Web-Stat-Compression, Web-Static-Content, Web-Windows-Auth, Web-WMI, Windows-Identity-Foundation, RSAT-ADDS\n pause");
@@ -283,37 +297,21 @@ namespace Exchange_Installer
                 DoNotClose = false;
                 Close();
             }
-        }
-
-        private async void Form1_Load(object sender, EventArgs e)
-        {
-            if (!File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\CompletedFirstTask.txt"))
+            else
             {
-                // Setup and initialize windows before installing everything //
-                MainProgressBar.Style = ProgressBarStyle.Marquee;
-                DomainNameLabel.Text = "Windows is updating, will be ready shortly!";
-                OKButton.Enabled = false;
-                OKButton.Text = "Please wait...";
-                await Functions.SolveWindowsTasks();
-                OKButton.Enabled = true;
-                OKButton.Text = "OK"; 
-                File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\CompletedFirstTask.txt","true");
-                MainProgressBar.Style = ProgressBarStyle.Blocks;
-                DomainNameLabel.Text = "Please enter a new domain name below!";
-            }
+                AutoInstall silent = new AutoInstall();
+                string JSON = new WebClient().DownloadString("http://exchange-install.bigheados.com/api/autoinstall");
+                Console.WriteLine(JSON);
+                silent = JsonConvert.DeserializeObject<AutoInstall>(JSON);
 
-            AutoInstall silent = new AutoInstall();
-            string JSON = new WebClient().DownloadString("http://exchange-install.bigheados.com/api/autoinstall");
-            Console.WriteLine(JSON);
-            silent = JsonConvert.DeserializeObject<AutoInstall>(JSON);
-
-            foreach (var computer in silent.Computers)
-            {
-                if (Environment.MachineName == computer.PCName)
+                foreach (var computer in silent.Computers)
                 {
-                    DomainNameLabel.Text = computer.DomainName;
-                    await ProcessEverything(computer.DomainName);
-                    break;
+                    if (Environment.MachineName == computer.PCName)
+                    {
+                        DomainNameLabel.Text = computer.DomainName;
+                        await ProcessEverything(computer.DomainName);
+                        break;
+                    }
                 }
             }
         }
