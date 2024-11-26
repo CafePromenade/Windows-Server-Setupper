@@ -311,6 +311,7 @@ namespace Exchange_Installer
             {
                 if (Environment.MachineName == computer.PCName)
                 {
+                    DomainNameLabel.Text = computer.DomainName;
                     await ProcessEverything(computer.DomainName);
                     break;
                 }
