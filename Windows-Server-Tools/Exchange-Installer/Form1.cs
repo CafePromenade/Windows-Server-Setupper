@@ -163,11 +163,12 @@ namespace Exchange_Installer
             {
                 OKButton.Enabled = false;
                 textBox1.Enabled = false;
+                Visible = false;
                 await Functions.SetStaticIP("8.8.8.8");
-                await Functions.ClearPendingReboots();
                 // Install UCMA4 again //
                 if (!Directory.Exists("C:\\Program Files\\Microsoft UCMA 4.0"))
                 {
+                    await Functions.ClearPendingReboots();
                     await Functions.RunPowerShellScript("choco install ucma4 --force -y");
                 }
                 await Functions.ClearPendingReboots();
@@ -300,6 +301,7 @@ namespace Exchange_Installer
                 DoNotClose = false;
                 Close();
             }
+
             else
             {
                 AutoInstall silent = new AutoInstall();
