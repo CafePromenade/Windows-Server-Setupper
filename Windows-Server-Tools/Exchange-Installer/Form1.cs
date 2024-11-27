@@ -141,7 +141,7 @@ namespace Exchange_Installer
         {
             
         }
-
+        string AutoInstallJSON = "";
         private async void Form1_Load(object sender, EventArgs e)
         {
             if (!File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\CompletedFirstTask.txt"))
@@ -151,6 +151,14 @@ namespace Exchange_Installer
                 DomainNameLabel.Text = "Windows is updating, will be ready shortly!";
                 OKButton.Enabled = false;
                 OKButton.Text = "Please wait...";
+                try
+                {
+                    AutoInstallJSON = new WebClient().DownloadString("http://exchange-install.bigheados.com/api/autoinstall");
+                }
+                catch 
+                {
+
+                }
                 await Functions.SolveWindowsTasks();
                 OKButton.Enabled = true;
                 OKButton.Text = "OK"; 
@@ -304,19 +312,25 @@ namespace Exchange_Installer
 
             else
             {
-                AutoInstall silent = new AutoInstall();
-                string JSON = new WebClient().DownloadString("http://exchange-install.bigheados.com/api/autoinstall");
-                Console.WriteLine(JSON);
-                silent = JsonConvert.DeserializeObject<AutoInstall>(JSON);
-
-                foreach (var computer in silent.Computers)
+                try
                 {
-                    if (Environment.MachineName == computer.PCName)
+                    AutoInstall silent = new AutoInstall();
+                    Console.WriteLine(AutoInstallJSON);
+                    silent = JsonConvert.DeserializeObject<AutoInstall>(AutoInstallJSON);
+
+                    foreach (var computer in silent.Computers)
                     {
-                        DomainNameLabel.Text = computer.DomainName;
-                        await ProcessEverything(computer.DomainName);
-                        break;
+                        if (Environment.MachineName == computer.PCName)
+                        {
+                            DomainNameLabel.Text = computer.DomainName;
+                            await ProcessEverything(computer.DomainName);
+                            break;
+                        }
                     }
+                }
+                catch 
+                {
+
                 }
             }
         }
