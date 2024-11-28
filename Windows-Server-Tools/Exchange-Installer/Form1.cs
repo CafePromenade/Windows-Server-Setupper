@@ -246,6 +246,9 @@ namespace Exchange_Installer
                 await Functions.RunPowerShellScript("iisreset");
                 await Functions.RunPowerShellScript("Restart-Service MSExchange* -Force");
                 await Functions.RunPowerShellScript("Add-DnsServerResourceRecordMX -Name \"@\" -ZoneName \"" + DomainName + "." + DomainCOM + "\" -MailExchange \"" + Environment.MachineName + "." + DomainName + "." + DomainCOM + "\" -Preference 10");
+                await Functions.RunPowerShellScript("Set-ReceiveConnector -Identity \"" + Environment.MachineName + "\\Default Frontend " + Environment.MachineName + "\" -Fqdn \"" + Environment.MachineName + "." + DomainName + "." + DomainCOM + "\"");
+                await Functions.RunPowerShellScript("Set-SendConnector -Identity \"Internal Mail\" -Fqdn \"" + FQDN + "\"");
+                await Functions.SetStaticIP("127.0.0.1");
                 //await Command.RunCommand("iisreset");
                 try
                 {
@@ -338,6 +341,8 @@ namespace Exchange_Installer
                 }
             }
         }
+
+        public static string FQDN => Environment.MachineName + "." + DomainName + "." + DomainCOM;
 
         public static readonly string ExchangeDirectory = "C:\\Exchange";
 
