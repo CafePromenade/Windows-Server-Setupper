@@ -126,6 +126,7 @@ namespace Exchange_Installer
 
             if(File.Exists(FourthStepTimeFile))
             {
+                fourthStepTime = DateTime.Parse(File.ReadAllText(FourthStepTimeFile));
                 FourthStepTimeLabel.Text = "Ready to use since: " + fourthStepTime.ToString("T");
                 if (firstStepTime != DateTime.MinValue)
                 {
@@ -171,9 +172,9 @@ namespace Exchange_Installer
             {
                 OKButton.Enabled = false;
                 textBox1.Enabled = false;
-                Visible = false;
-                await Task.Delay(1000);
-                Visible = false;
+                //Visible = false;
+                //await Task.Delay(1000);
+                //Visible = false;
                 await Functions.SetStaticIP("8.8.8.8");
                 // Install UCMA4 again //
                 if (!Directory.Exists("C:\\Program Files\\Microsoft UCMA 4.0"))
@@ -244,6 +245,9 @@ namespace Exchange_Installer
             else if (Environment.GetCommandLineArgs().Contains("post_install"))
             {
                 DoNotClose = false;
+                OKButton.Enabled = false;
+                textBox1.Enabled = false;
+                DomainNameLabel.Text = "Finishing a few more tasks..";
                 Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
                 await Functions.RunPowerShellScript("Get-Service | Where-Object {$_.DisplayName -like \"*Exchange*\"} | ForEach-Object {\r\n    Set-Service -Name $_.Name -StartupType Automatic\r\n}\r\n");
                 await Functions.RunPowerShellScript("Get-Service | Where-Object {$_.DisplayName -like \"*Exchange*\" -and $_.Status -ne \"Running\"} | ForEach-Object {\r\n    Start-Service -Name $_.Name\r\n}\r\n");
@@ -251,8 +255,14 @@ namespace Exchange_Installer
                 await Functions.RunPowerShellScript("iisreset");
                 await Functions.RunPowerShellScript("Restart-Service MSExchange* -Force");
                 await Functions.RunPowerShellScript("Add-DnsServerResourceRecordMX -Name \"@\" -ZoneName \"" + DomainName + "." + DomainCOM + "\" -MailExchange \"" + Environment.MachineName + "." + DomainName + "." + DomainCOM + "\" -Preference 10");
-                await Functions.RunPowerShellScript("Set-ReceiveConnector -Identity \"" + Environment.MachineName + "\\Default Frontend " + Environment.MachineName + "\" -Fqdn \"" + Environment.MachineName + "." + DomainName + "." + DomainCOM + "\"");
-                await Functions.RunPowerShellScript("Set-SendConnector -Identity \"Internal Mail\" -Fqdn \"" + FQDN + "\"");
+                await Functions.CreateInternalMailSendConnector(FQDN);
+                await Functions.RunExchangePowerShellScript($@"
+    Set-ReceiveConnector -Identity '{Environment.MachineName}\Default Frontend {Environment.MachineName}' -Fqdn '{FQDN}';
+    Set-SendConnector -Identity 'Internal Mail' -Fqdn '{FQDN}';
+");
+                await Functions.ConfigureSendConnectors(FQDN);
+
+
                 await Functions.SetStaticIP("127.0.0.1");
                 //await Command.RunCommand("iisreset");
                 try
@@ -263,6 +273,7 @@ namespace Exchange_Installer
                 {
 
                 }
+                DomainNameLabel.Text = "FINISHED";
                 File.WriteAllText(FourthStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
             }
@@ -321,6 +332,16 @@ namespace Exchange_Installer
                 DoNotClose = false;
                 Close();
             }
+            else if (Environment.GetCommandLineArgs().Contains("mail"))
+            {
+                await Functions.CreateInternalMailSendConnector(FQDN);
+                await Functions.RunExchangePowerShellScript($@"
+    Set-ReceiveConnector -Identity '{Environment.MachineName}\Default Frontend {Environment.MachineName}' -Fqdn '{FQDN}';
+    Set-SendConnector -Identity 'Internal Mail' -Fqdn '{FQDN}';
+");
+                await Functions.ConfigureSendConnectors(FQDN);
+                DoNotClose = false;
+            }
 
             else
             {
@@ -345,6 +366,8 @@ namespace Exchange_Installer
 
                 }
             }
+
+            RetrieveTimes();
         }
 
         public static string FQDN => Environment.MachineName + "." + DomainName + "." + DomainCOM;

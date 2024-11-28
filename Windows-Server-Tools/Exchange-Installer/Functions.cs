@@ -133,6 +133,112 @@ namespace Exchange_Installer
             });
         }
 
+        public static async Task ConfigureSendConnectors(string fqdn)
+        {
+            string serverName = Environment.MachineName; // Dynamically fetch the server name
+
+            // Provide credentials for Gmail and Outlook
+            string gmailUsername = "Administrator"; // Replace with Gmail username
+            string gmailPassword = "P@ssw0rd";      // Replace with Gmail password
+            string outlookUsername = "Administrator"; // Replace with Outlook username
+            string outlookPassword = "P@ssw0rd";      // Replace with Outlook password
+
+            // PowerShell script to configure Gmail and Outlook Send Connectors with credentials
+            string script = $@"
+    # Convert credentials to a PSCredential object
+    $gmailSecurePassword = ConvertTo-SecureString '{gmailPassword}' -AsPlainText -Force;
+    $gmailCredential = New-Object System.Management.Automation.PSCredential('{gmailUsername}', $gmailSecurePassword);
+
+    $outlookSecurePassword = ConvertTo-SecureString '{outlookPassword}' -AsPlainText -Force;
+    $outlookCredential = New-Object System.Management.Automation.PSCredential('{outlookUsername}', $outlookSecurePassword);
+
+    # Add Gmail Send Connector
+    if (!(Get-SendConnector | Where-Object {{ $_.Name -eq 'Gmail Send Connector' }})) {{
+        New-SendConnector -Name 'Gmail Send Connector' -Usage Internet -AddressSpaces 'smtp.gmail.com' -SmartHosts 'smtp.gmail.com' `
+            -SourceTransportServers '{serverName}' -Port 587 -RequireTLS $true -AuthenticationCredential $gmailCredential;
+        Write-Output 'Gmail Send Connector created successfully.';
+    }} else {{
+        Write-Output 'Gmail Send Connector already exists.';
+    }}
+
+    # Add Outlook Send Connector
+    if (!(Get-SendConnector | Where-Object {{ $_.Name -eq 'Outlook Send Connector' }})) {{
+        New-SendConnector -Name 'Outlook Send Connector' -Usage Internet -AddressSpaces 'smtp.office365.com' -SmartHosts 'smtp.office365.com' `
+            -SourceTransportServers '{serverName}' -Port 587 -RequireTLS $true -AuthenticationCredential $outlookCredential;
+        Write-Output 'Outlook Send Connector created successfully.';
+    }} else {{
+        Write-Output 'Outlook Send Connector already exists.';
+    }}
+";
+
+            // Run the PowerShell script
+            await RunExchangePowerShellScript(script);
+        }
+
+
+
+        public static async Task RunExchangePowerShellScript(string script)
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
+
+            // Load the Exchange Management Shell module and execute the script
+            string exchangeInitScript = @"
+        Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn -ErrorAction SilentlyContinue;
+        " + script;
+
+            process.StartInfo.Arguments = $"-Command \"{exchangeInitScript}\"";
+            process.StartInfo.RedirectStandardOutput = true; // Capture output
+            process.StartInfo.RedirectStandardError = true; // Capture errors
+            process.StartInfo.UseShellExecute = false; // Required for redirection
+            process.StartInfo.CreateNoWindow = false; // Show the PowerShell window
+            process.StartInfo.Verb = "runas"; // Run as administrator
+
+            // Start the process
+            await Task.Factory.StartNew(() =>
+            {
+                process.Start();
+
+                // Optionally, read the output and errors
+                string output = process.StandardOutput.ReadToEnd();
+                string errors = process.StandardError.ReadToEnd();
+
+                process.WaitForExit();
+
+                // Debug logs (optional)
+                Console.WriteLine("Output: " + output);
+                Console.WriteLine("Errors: " + errors);
+
+                // Handle errors
+                if (!string.IsNullOrEmpty(errors))
+                {
+                    throw new Exception("PowerShell error: " + errors);
+                }
+            });
+        }
+
+        public static async Task CreateInternalMailSendConnector(string fqdn)
+        {
+            string serverName = Environment.MachineName; // Dynamically fetch the server name
+
+            // PowerShell script to create the "Internal Mail" Send Connector
+            string script = $@"
+        # Check if the Internal Mail Send Connector exists
+        if (!(Get-SendConnector | Where-Object {{ $_.Name -eq 'Internal Mail' }})) {{
+            # Create the Internal Mail Send Connector
+            New-SendConnector -Name 'Internal Mail' -Usage Internal -AddressSpaces 'jc.local' `
+                -SourceTransportServers '{serverName}' -Fqdn '{fqdn}' -DNSRoutingEnabled $true;
+            Write-Output 'Internal Mail Send Connector created successfully.';
+        }} else {{
+            Write-Output 'Internal Mail Send Connector already exists.';
+        }}
+    ";
+
+            // Run the PowerShell script
+            await RunExchangePowerShellScript(script);
+        }
+
+
         public static async System.Threading.Tasks.Task DaDhui(bool RestartAfter = false,string CustomArg = "exchange")
         {
             string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
