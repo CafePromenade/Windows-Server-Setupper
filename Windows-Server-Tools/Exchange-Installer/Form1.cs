@@ -172,6 +172,8 @@ namespace Exchange_Installer
                 OKButton.Enabled = false;
                 textBox1.Enabled = false;
                 Visible = false;
+                await Task.Delay(1000);
+                Visible = false;
                 await Functions.SetStaticIP("8.8.8.8");
                 // Install UCMA4 again //
                 if (!Directory.Exists("C:\\Program Files\\Microsoft UCMA 4.0"))
@@ -179,6 +181,9 @@ namespace Exchange_Installer
                     await Functions.ClearPendingReboots();
                     await Functions.RunPowerShellScript("choco install ucma4 --force -y");
                 }
+                // Recheck Prequisites //
+                DomainNameLabel.Text = "Validating Prerequisites";
+                await Functions.ChocoInstall("vcredist2013 vcredist140 ucma4 urlrewrite dotnetfx dotnet-runtime dotnet");
                 await Functions.ClearPendingReboots();
                 File.WriteAllText(SecondStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
@@ -271,7 +276,7 @@ namespace Exchange_Installer
                 //await Functions.RunPowerShellScript("choco install urlrewrite -y");
                 //await Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
                 DomainNameLabel.Text = "Processing Install";
-                await Functions.ChocoInstall("vcredist2013 vcredist140 ucma4 urlrewrite dotnetfx dotnet-runtime dotnet");
+                await Functions.ChocoInstall("vcredist2013 vcredist140 ucma4 urlrewrite dotnetfx dotnet-runtime dotnet --force");
                 //DomainNameLabel.Text = "Unified Communications API";
                 //await Functions.ChocoInstall("");
                 //DomainNameLabel.Text = "IIS URL Rewrite";
