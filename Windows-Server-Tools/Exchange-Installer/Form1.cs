@@ -245,6 +245,7 @@ namespace Exchange_Installer
                 await Functions.RunPowerShellScript("iisreset");
                 await Functions.RunPowerShellScript("iisreset");
                 await Functions.RunPowerShellScript("Restart-Service MSExchange* -Force");
+                await Functions.RunPowerShellScript("Add-DnsServerResourceRecordMX -Name \"@\" -ZoneName \"" + DomainName + "." + DomainCOM + "\" -MailExchange \"" + Environment.MachineName + "." + DomainName + "." + DomainCOM + "\" -Preference 10");
                 //await Command.RunCommand("iisreset");
                 try
                 {
