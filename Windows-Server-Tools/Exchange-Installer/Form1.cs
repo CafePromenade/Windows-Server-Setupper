@@ -197,6 +197,7 @@ namespace Exchange_Installer
 
                 DomainNameLabel.Text = "Preparing Schema";
                 //DomainNameLabel.Text = "";
+                await Functions.ClearPendingReboots();
                 await Functions.RunPowerShellScript(exchangeSetupPath + " /IAcceptExchangeServerLicenseTerms_DiagnosticDataON /PrepareSchema");
                 MainProgressBar.Value = 1;
                 DomainNameLabel.Text = "Preparing AD";

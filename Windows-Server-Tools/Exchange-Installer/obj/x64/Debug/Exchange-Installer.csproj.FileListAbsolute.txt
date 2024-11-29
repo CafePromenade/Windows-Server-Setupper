@@ -26,3 +26,17 @@ C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\E
 C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange.10E9FC74.Up2Date
 C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.exe
 C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.pdb
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\Exchange-Installer.exe.config
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\Exchange-Installer.exe
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\Exchange-Installer.pdb
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\Microsoft.Win32.TaskScheduler.xml
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.csproj.AssemblyReference.cache
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange_Installer.Form1.resources
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange_Installer.Properties.Resources.resources
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.csproj.GenerateResource.cache
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.csproj.CoreCompileInputs.cache
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.csproj.Fody.CopyLocal.cache
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange.10E9FC74.Up2Date
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.exe
+C:\Users\Jerjer\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.pdb
