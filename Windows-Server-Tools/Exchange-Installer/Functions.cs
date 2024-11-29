@@ -212,7 +212,14 @@ namespace Exchange_Installer
                 // Handle errors
                 if (!string.IsNullOrEmpty(errors))
                 {
-                    throw new Exception("PowerShell error: " + errors);
+                    try
+                    {
+                        File.AppendAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\ExchangeShellError.txt", errors);
+                    }
+                    catch 
+                    {
+
+                    }
                 }
             });
         }
