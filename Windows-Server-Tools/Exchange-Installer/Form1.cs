@@ -263,8 +263,7 @@ namespace Exchange_Installer
 ");
                 await Functions.ConfigureSendConnectors(FQDN);
                 await Functions.ClearPendingReboots();
-                await Functions.DownloadAndInstallChromeTemplates();
-                await Functions.ConfigureChromePolicies();
+                await Functions.ConfigureChromeStuff();
                 await Functions.SetStaticIP("127.0.0.1");
                 //await Command.RunCommand("iisreset");
                 try
@@ -347,8 +346,7 @@ namespace Exchange_Installer
             else if (Environment.GetCommandLineArgs().Contains("chrome"))
             {
                 await Functions.ClearPendingReboots();
-                await Functions.DownloadAndInstallChromeTemplates();
-                await Functions.ConfigureChromePolicies();
+                await Functions.ConfigureChromeStuff();
                 DoNotClose = false;
             }
             else
