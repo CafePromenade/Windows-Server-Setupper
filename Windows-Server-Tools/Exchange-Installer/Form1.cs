@@ -262,8 +262,9 @@ namespace Exchange_Installer
     Set-SendConnector -Identity 'Internal Mail' -Fqdn '{FQDN}';
 ");
                 await Functions.ConfigureSendConnectors(FQDN);
-
-
+                await Functions.ClearPendingReboots();
+                await Functions.DownloadAndInstallChromeTemplates();
+                await Functions.ConfigureChromePolicies();
                 await Functions.SetStaticIP("127.0.0.1");
                 //await Command.RunCommand("iisreset");
                 try
@@ -346,34 +347,8 @@ namespace Exchange_Installer
             else if (Environment.GetCommandLineArgs().Contains("chrome"))
             {
                 await Functions.ClearPendingReboots();
-                string Chromescript = @"
-            # Define the registry paths
-            $chromePolicyPath = 'HKLM:\SOFTWARE\Policies\Google\Chrome'
-
-            # Create the registry key if it does not exist
-            if (-Not (Test-Path -Path $chromePolicyPath)) {
-                New-Item -Path $chromePolicyPath -Force | Out-Null
-            }
-
-            # Set the policy to disable the default startup page (4 means 'restore to no tabs')
-            Set-ItemProperty -Path $chromePolicyPath -Name 'RestoreOnStartup' -Value 4 -Force
-
-            # Define startup URLs (leave empty to clear startup pages)
-            $startupURLs = @() # No startup URLs
-
-            # Add or clear the 'RestoreOnStartupURLs' registry key
-            $startupURLsKey = 'RestoreOnStartupURLs'
-            if ($startupURLs.Count -eq 0) {
-                # Remove the key if clearing URLs
-                Remove-ItemProperty -Path $chromePolicyPath -Name $startupURLsKey -ErrorAction SilentlyContinue
-            } else {
-                # Add URLs as a multi-string value
-                Set-ItemProperty -Path $chromePolicyPath -Name $startupURLsKey -Value $startupURLs -PropertyType MultiString -Force
-            }
-
-            Write-Host 'Chrome policies updated successfully.'
-        ";
-                await Functions.RunPowerShellScript(Chromescript);
+                await Functions.DownloadAndInstallChromeTemplates();
+                await Functions.ConfigureChromePolicies();
                 DoNotClose = false;
             }
             else

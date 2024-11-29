@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -42,6 +43,146 @@ namespace Exchange_Installer
             //    Process.Start(ChocoPath, "install " + SOFTWARE + " -y --ignore-checksums").WaitForExit();
             //});
             //await Command.RunCommandHidden("\"C:\\ProgramData\\chocolatey\\bin\\choco.exe\" install " + SOFTWARE + " -y --ignore-checksums");
+        }
+
+        public static async Task DownloadAndInstallChromeTemplates()
+        {
+            try
+            {
+                string downloadUrl = "https://dl.google.com/dl/edgedl/chrome/policy/policy_templates.zip";
+                string destinationZip = Path.Combine(Path.GetTempPath(), "policy_templates.zip");
+                string extractPath = Path.Combine(Path.GetTempPath(), "policy_templates");
+
+                Console.WriteLine("Downloading Chrome ADMX templates...");
+                using (WebClient webClient = new WebClient())
+                {
+                    webClient.DownloadFile(downloadUrl, destinationZip);
+                }
+                Console.WriteLine("Download completed successfully.");
+
+                Console.WriteLine("Extracting Chrome ADMX templates...");
+                if (Directory.Exists(extractPath))
+                {
+                    Directory.Delete(extractPath, true);
+                }
+                System.IO.Compression.ZipFile.ExtractToDirectory(destinationZip, extractPath);
+
+                Console.WriteLine("Installing Chrome ADMX templates...");
+                string policyDefinitionsPath = @"C:\Windows\PolicyDefinitions";
+                string languagePath = "en-US"; // Adjust for your language
+                string sourceAdmx = Path.Combine(extractPath, "windows\\admx\\chrome.admx");
+                string sourceAdml = Path.Combine(extractPath, $"windows\\admx\\{languagePath}\\chrome.adml");
+                string destinationAdml = Path.Combine(policyDefinitionsPath, languagePath);
+
+                // Ensure directories exist
+                if (!Directory.Exists(policyDefinitionsPath))
+                {
+                    Directory.CreateDirectory(policyDefinitionsPath);
+                }
+                if (!Directory.Exists(destinationAdml))
+                {
+                    Directory.CreateDirectory(destinationAdml);
+                }
+
+                // Copy ADMX and ADML files
+                File.Copy(sourceAdmx, Path.Combine(policyDefinitionsPath, "chrome.admx"), true);
+                File.Copy(sourceAdml, Path.Combine(destinationAdml, "chrome.adml"), true);
+
+                Console.WriteLine("Templates installed successfully.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred while installing templates: " + ex.Message);
+            }
+        }
+
+        public static async Task ConfigureChromePolicies()
+        {
+            string script = @"
+        # Set paths
+        $chromePolicyPath = 'HKLM:\SOFTWARE\Policies\Google\Chrome'
+        $managedBookmarksPath = 'HKLM:\SOFTWARE\Policies\Google\Chrome\ManagedBookmarks'
+
+        # Ensure the main Chrome policy registry path exists
+        if (-Not (Test-Path $chromePolicyPath)) {
+            Write-Host 'Creating Chrome policy registry path...' -ForegroundColor Green
+            New-Item -Path $chromePolicyPath -Force | Out-Null
+        }
+
+        # Set policy to disable default startup page
+        Write-Host 'Setting ''RestoreOnStartup'' to 4...' -ForegroundColor Green
+        Set-ItemProperty -Path $chromePolicyPath -Name 'RestoreOnStartup' -Value 4 -Force
+
+        # Clear existing startup URLs
+        Write-Host 'Clearing ''RestoreOnStartupURLs''...' -ForegroundColor Green
+        if (Test-Path -Path $chromePolicyPath) {
+            Remove-ItemProperty -Path $chromePolicyPath -Name 'RestoreOnStartupURLs' -ErrorAction SilentlyContinue
+        }
+
+        # Ensure the ManagedBookmarks key exists
+        if (-Not (Test-Path $managedBookmarksPath)) {
+            Write-Host 'Creating ManagedBookmarks registry path...' -ForegroundColor Green
+            New-Item -Path $managedBookmarksPath -Force | Out-Null
+        }
+
+        # Define bookmarks to add
+        $bookmarks = @(
+            @{
+                Name = 'Exchange Admin Centre'
+                URL  = 'https://localhost/ecp'
+            },
+            @{
+                Name = 'Outlook'
+                URL  = 'https://localhost/owa'
+            }
+        )
+
+        # Add bookmarks under the ManagedBookmarks registry
+        Write-Host 'Adding Managed Bookmarks...' -ForegroundColor Green
+        $index = 0
+        foreach ($bookmark in $bookmarks) {
+            $bookmarkKeyPath = Join-Path $managedBookmarksPath $index
+            if (-Not (Test-Path $bookmarkKeyPath)) {
+                New-Item -Path $bookmarkKeyPath -Force | Out-Null
+            }
+            Set-ItemProperty -Path $bookmarkKeyPath -Name 'Name' -Value $bookmark.Name -Force
+            Set-ItemProperty -Path $bookmarkKeyPath -Name 'URL' -Value $bookmark.URL -Force
+            Write-Host 'Bookmark added: $($bookmark.Name) -> $($bookmark.URL)' -ForegroundColor Cyan
+            $index++
+        }
+
+        # Set Chrome as the default browser
+        Write-Host 'Setting Chrome as the default browser...' -ForegroundColor Green
+        $chromePath = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
+        if (Test-Path $chromePath) {
+            $assocXml = @'
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<DefaultAssociations xmlns=""http://schemas.microsoft.com/2009/11/DefaultAssociations"">
+    <Association Identifier=""http"" ProgId=""ChromeHTML"" ApplicationName=""Google Chrome""/>
+    <Association Identifier=""https"" ProgId=""ChromeHTML"" ApplicationName=""Google Chrome""/>
+    <Association Identifier="".htm"" ProgId=""ChromeHTML"" ApplicationName=""Google Chrome""/>
+    <Association Identifier="".html"" ProgId=""ChromeHTML"" ApplicationName=""Google Chrome""/>
+</DefaultAssociations>
+'@
+
+            $xmlPath = Join-Path $env:TEMP 'ChromeDefaultAssociations.xml'
+            $assocXml | Out-File -FilePath $xmlPath -Encoding UTF8
+
+            # Apply the file associations
+            Start-Process 'dism.exe' -ArgumentList '/online', '/import-defaultappassociations:$xmlPath' -Wait -NoNewWindow
+            Write-Host 'Chrome set as the default browser successfully.' -ForegroundColor Cyan
+        } else {
+            Write-Host 'Chrome executable not found. Make sure Chrome is installed at $chromePath' -ForegroundColor Red
+        }
+
+        # Refresh Group Policy
+        Write-Host 'Refreshing Group Policy...' -ForegroundColor Green
+        gpupdate /force
+
+        Write-Host 'Google Chrome policies, bookmarks, and default browser settings configured successfully.' -ForegroundColor Cyan
+        ";
+
+            await RunPowerShellScript(script);
         }
         public static async Task InstallActiveDirectoryAndPromoteToDC(string domainName, string safeModeAdminPassword, string domainNetbiosName = "CONTOSO")
         {
