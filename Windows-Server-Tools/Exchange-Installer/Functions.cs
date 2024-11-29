@@ -120,7 +120,7 @@ namespace Exchange_Installer
         {
             Process process = new Process();
             process.StartInfo.FileName = @"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe";
-            process.StartInfo.Arguments = $"-Command \"{script}\"";
+            process.StartInfo.Arguments = $"-NoProfile -ExecutionPolicy Bypass -Command \"{script}\"";
             process.StartInfo.RedirectStandardOutput = false; // Allows the window to show
             process.StartInfo.UseShellExecute = true; // This will show the PowerShell window
             process.StartInfo.CreateNoWindow = false; // Do not create a hidden window
@@ -284,8 +284,19 @@ namespace Exchange_Installer
         public static async Task ClearPendingReboots()
         {
             // Clear Pending Reboots //
-            await Functions.RunPowerShellScript("Remove-ItemProperty -Path \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\" -Name \"PendingFileRenameOperations\" -ErrorAction SilentlyContinue\r\n");
-            await Functions.RunPowerShellScript("# Clear all pending reboot indicators\r\nRemove-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Component Based Servicing' -Name 'RebootPending' -Force -ErrorAction SilentlyContinue;\r\nRemove-ItemProperty -Path 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Session Manager' -Name 'PendingFileRenameOperations' -Force -ErrorAction SilentlyContinue;\r\nRemove-Item -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\WindowsUpdate\\Auto Update\\RebootRequired' -Recurse -Force -ErrorAction SilentlyContinue;");
+            string script = @"
+            Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager' -Name 'PendingFileRenameOperations' -ErrorAction SilentlyContinue
+            Write-Host 'Pending file rename operations cleared.'
+        ";
+            await Functions.RunPowerShellScript(script);
+            string Allscript = @"
+# Clear all pending reboot indicators
+Remove-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing' -Name 'RebootPending' -Force -ErrorAction SilentlyContinue;
+Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager' -Name 'PendingFileRenameOperations' -Force -ErrorAction SilentlyContinue;
+Remove-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate\Auto Update\RebootRequired' -Recurse -Force -ErrorAction SilentlyContinue;
+";
+
+            await Functions.RunPowerShellScript(Allscript);
         }
 
         public static void CreateSimpsonsTask(string programpath, string arguments,bool RestartAfter = false)

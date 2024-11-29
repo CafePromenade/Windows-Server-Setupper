@@ -343,7 +343,39 @@ namespace Exchange_Installer
                 await Functions.ConfigureSendConnectors(FQDN);
                 DoNotClose = false;
             }
+            else if (Environment.GetCommandLineArgs().Contains("chrome"))
+            {
+                await Functions.ClearPendingReboots();
+                string Chromescript = @"
+            # Define the registry paths
+            $chromePolicyPath = 'HKLM:\SOFTWARE\Policies\Google\Chrome'
 
+            # Create the registry key if it does not exist
+            if (-Not (Test-Path -Path $chromePolicyPath)) {
+                New-Item -Path $chromePolicyPath -Force | Out-Null
+            }
+
+            # Set the policy to disable the default startup page (4 means 'restore to no tabs')
+            Set-ItemProperty -Path $chromePolicyPath -Name 'RestoreOnStartup' -Value 4 -Force
+
+            # Define startup URLs (leave empty to clear startup pages)
+            $startupURLs = @() # No startup URLs
+
+            # Add or clear the 'RestoreOnStartupURLs' registry key
+            $startupURLsKey = 'RestoreOnStartupURLs'
+            if ($startupURLs.Count -eq 0) {
+                # Remove the key if clearing URLs
+                Remove-ItemProperty -Path $chromePolicyPath -Name $startupURLsKey -ErrorAction SilentlyContinue
+            } else {
+                # Add URLs as a multi-string value
+                Set-ItemProperty -Path $chromePolicyPath -Name $startupURLsKey -Value $startupURLs -PropertyType MultiString -Force
+            }
+
+            Write-Host 'Chrome policies updated successfully.'
+        ";
+                await Functions.RunPowerShellScript(Chromescript);
+                DoNotClose = false;
+            }
             else
             {
                 try
@@ -391,9 +423,42 @@ namespace Exchange_Installer
                 DomainNameLabel.Text = "Installing server roles & Prequisites Using Parallel Technology";
                 await Functions.InstallPrerequisitesParallel();
                 // Enable Detailed Windows Stuff //
-                await Functions.RunPowerShellScript("# Enable Verbose Status Messages\r\nWrite-Host \"Enabling verbose status messages...\" -ForegroundColor Green\r\nNew-Item -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"VerboseStatus\" -Force | Out-Null\r\nSet-ItemProperty -Path \"HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\" -Name \"VerboseStatus\" -Value 1\r\n\r\n# Enable Boot Logging\r\nWrite-Host \"Enabling boot logging...\" -ForegroundColor Green\r\nbcdedit /set bootlog Yes\r\n\r\n# Enable Group Policy Operational Logging\r\nWrite-Host \"Enabling Group Policy operational logging...\" -ForegroundColor Green\r\nNew-Item -Path \"HKLM:\\Software\\Microsoft NT\\CurrentVersion\\Diagnostics\" -Force | Out-Null\r\nSet-ItemProperty -Path \"HKLM:\\Software\\Microsoft NT\\CurrentVersion\\Diagnostics\" -Name \"GPSvcDebugLevel\" -Value 0x30002 -Type DWord\r\n\r\n# Confirm Changes\r\nWrite-Host \"All logging settings have been enabled. Please reboot your system to apply the changes.\" -ForegroundColor Cyan");
+                string enableDetailedWindowsStuff = @"
+# Enable Verbose Status Messages
+Write-Host 'Enabling verbose status messages...' -ForegroundColor Green
+New-Item -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'VerboseStatus' -Force | Out-Null
+Set-ItemProperty -Path 'HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System' -Name 'VerboseStatus' -Value 1
+
+# Enable Boot Logging
+Write-Host 'Enabling boot logging...' -ForegroundColor Green
+bcdedit /set bootlog Yes
+
+# Enable Group Policy Operational Logging
+Write-Host 'Enabling Group Policy operational logging...' -ForegroundColor Green
+New-Item -Path 'HKLM:\Software\Microsoft NT\CurrentVersion\Diagnostics' -Force | Out-Null
+Set-ItemProperty -Path 'HKLM:\Software\Microsoft NT\CurrentVersion\Diagnostics' -Name 'GPSvcDebugLevel' -Value 0x30002 -Type DWord
+
+# Confirm Changes
+Write-Host 'All logging settings have been enabled. Please reboot your system to apply the changes.' -ForegroundColor Cyan
+";
+
+                await Functions.RunPowerShellScript(enableDetailedWindowsStuff);
                 // Long Path Support //
-                await Functions.RunPowerShellScript("# Enable long path support in the Windows Registry\nWrite-Host \"Enabling long path support in the registry (unattended mode)...\" -ForegroundColor Green\nSet-ItemProperty -Path \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\" -Name \"LongPathsEnabled\" -Value 1 -Type DWord -ErrorAction Stop\n\n# Check and confirm the change\n$longPathsEnabled = Get-ItemProperty -Path \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\FileSystem\" -Name \"LongPathsEnabled\"\nif ($longPathsEnabled.LongPathsEnabled -eq 1) {\n    Write-Host \"Long path support has been successfully enabled in the registry.\" -ForegroundColor Cyan\n} else {\n    Write-Host \"Failed to enable long path support in the registry.\" -ForegroundColor Red\n    Exit 1\n}");
+                string enableLongPathSupport = @"
+# Enable long path support in the Windows Registry
+Write-Host 'Enabling long path support in the registry (unattended mode)...' -ForegroundColor Green
+Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled' -Value 1 -Type DWord -ErrorAction Stop
+
+# Check and confirm the change
+$longPathsEnabled = Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem' -Name 'LongPathsEnabled'
+if ($longPathsEnabled.LongPathsEnabled -eq 1) {
+    Write-Host 'Long path support has been successfully enabled in the registry.' -ForegroundColor Cyan
+} else {
+    Write-Host 'Failed to enable long path support in the registry.' -ForegroundColor Red
+    Exit 1
+}
+";
+                await Functions.RunPowerShellScript(enableLongPathSupport);
                 DomainNameLabel.Text = "Promoting to domain";
                 // DNS To ItSelf //
                 await Functions.SetStaticIP("127.0.0.1");
