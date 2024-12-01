@@ -438,6 +438,7 @@ if ($longPathsEnabled.LongPathsEnabled -eq 1) {
                 // DNS Forward //
                 await Functions.RunPowerShellScript("Add-DnsServerForwarder -IPAddress 8.8.8.8");
                 await Functions.RunPowerShellScript("Add-DnsServerForwarder -IPAddress 8.8.4.4");
+                await Functions.RunPowerShellScript(@"New-ItemProperty -Path ""HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"" -Name ""VerboseStatus"" -Value 1 -PropertyType DWORD -Force");
                 // Promote to DC //
                 await Functions.InstallActiveDirectoryAndPromoteToDC(DomainNameText, "P@ssw0rd", DomainNameText.Split('.')[0].ToUpper());
                 DoNotClose = false;
