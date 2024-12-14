@@ -1,0 +1,10 @@
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\bin\x64\Debug\SCCM-Installer.exe.config
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\bin\x64\Debug\SCCM-Installer.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\bin\x64\Debug\SCCM-Installer.pdb
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.csproj.AssemblyReference.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM_Installer.Form1.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM_Installer.Properties.Resources.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.csproj.GenerateResource.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.csproj.CoreCompileInputs.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.pdb
