@@ -8,3 +8,7 @@ C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCC
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.csproj.CoreCompileInputs.cache
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.exe
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.pdb
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\bin\x64\Debug\Microsoft.Win32.TaskScheduler.xml
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.csproj.Fody.CopyLocal.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Installer.csproj.Fody.RuntimeCopyLocal.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Installer\obj\x64\Debug\SCCM-Ins.803D0140.Up2Date

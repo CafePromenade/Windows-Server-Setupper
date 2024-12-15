@@ -30,7 +30,7 @@
         {
             this.SubmitButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.MainLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SubmitButton
@@ -50,21 +50,22 @@
             this.textBox1.Size = new System.Drawing.Size(710, 26);
             this.textBox1.TabIndex = 1;
             // 
-            // label1
+            // MainLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(268, 120);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Please Enter A Domain Name";
+            this.MainLabel.AutoSize = true;
+            this.MainLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.MainLabel.Location = new System.Drawing.Point(34, 93);
+            this.MainLabel.Name = "MainLabel";
+            this.MainLabel.Size = new System.Drawing.Size(407, 36);
+            this.MainLabel.TabIndex = 2;
+            this.MainLabel.Text = "Please Enter A Domain Name";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.MainLabel);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.SubmitButton);
             this.Name = "Form1";
@@ -78,7 +79,7 @@
 
         private System.Windows.Forms.Button SubmitButton;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label MainLabel;
     }
 }
 
