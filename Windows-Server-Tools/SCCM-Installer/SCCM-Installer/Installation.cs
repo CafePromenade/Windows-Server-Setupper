@@ -206,7 +206,7 @@ Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
             await Functions.RunPowerShellScript("Install-WindowsFeature -Name Web-Server, Web-Windows-Auth, Web-Asp-Net45, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Mgmt-Console, NET-Framework-Features, NET-Framework-Core, BITS, RDC, RSAT-ADDS -IncludeManagementTools");
             await Functions.RunPowerShellScript("Install-WindowsFeature -Name UpdateServices -IncludeManagementTools");
             MainTextBox.Text += "\nInstalling prerequisites" + DateTime.Now.ToString("F");
-            await Functions.ChocoInstall("windows-adk sql-server-management-studio sqlserver-odbcdriver");
+            await Functions.ChocoInstall("windows-adk sql-server-management-studio sqlserver-odbcdriver vscode");
             // Install Windows ADK PE //
             MainTextBox.Text += "\nInstalling windows ADK" + DateTime.Now.ToString("F");
             await InstallADKPE();
