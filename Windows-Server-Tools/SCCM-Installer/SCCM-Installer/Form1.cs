@@ -18,6 +18,13 @@ namespace SCCM_Installer
             InitializeComponent();
             Load += Form1_Load;
             Load += Form1_Load1;
+            FormClosing += Form1_FormClosing;
+        }
+
+        bool CanClose = false;
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            e.Cancel = !CanClose;
         }
 
         bool EnableStuff
@@ -41,8 +48,10 @@ namespace SCCM_Installer
             // INSTALL PREREQUISITES BEFORE PROMOTE TO DC TO SAVE A REBOOT //
             if (CommandLineArgs.Contains("install"))
             {
-                // Install SQL Server First //
-                await InstallSQLServer();
+                // Install SCCM //
+                await InstallSCCM();
+                CanClose = true;
+                Close();
             }
             else
             {
