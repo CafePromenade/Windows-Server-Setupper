@@ -1,0 +1,10 @@
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\bin\Debug\SCCM-Loader.exe.config
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\bin\Debug\SCCM-Loader.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\bin\Debug\SCCM-Loader.pdb
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\obj\Debug\SCCM-Loader.csproj.AssemblyReference.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\obj\Debug\SCCM_Loader.Form1.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\obj\Debug\SCCM_Loader.Properties.Resources.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\obj\Debug\SCCM-Loader.csproj.GenerateResource.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\obj\Debug\SCCM-Loader.csproj.CoreCompileInputs.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\obj\Debug\SCCM-Loader.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\SCCM-Installer\SCCM-Loader\obj\Debug\SCCM-Loader.pdb

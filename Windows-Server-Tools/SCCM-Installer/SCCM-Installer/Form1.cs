@@ -21,7 +21,7 @@ namespace SCCM_Installer
             FormClosing += Form1_FormClosing;
         }
 
-        bool CanClose = false;
+        bool CanClose = true;
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = !CanClose;
@@ -33,6 +33,7 @@ namespace SCCM_Installer
             {
                 textBox1.Enabled = value;
                 SubmitButton.Enabled = value;
+                CanClose = value;
             }
         }
 
