@@ -48,7 +48,11 @@ namespace SCCM_Installer
             string SQLPath = "C:\\SQL_Setup\\setup.exe";
             string script = $"Start-Process -FilePath \"{SQLPath}\" -ArgumentList \"/QUIET /ACTION=Install /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER /SQLSVCACCOUNT='NT AUTHORITY\\SYSTEM' /SQLSYSADMINACCOUNTS='BUILTIN\\Administrators' /SAPWD='P@ssw0rd123!' /SECURITYMODE=SQL /IACCEPTSQLSERVERLICENSETERMS\" -Wait";
 
-            await Functions.RunPowerShellScript(script);
+            //await Functions.RunPowerShellScript(script);
+            await Task.Run(() =>
+            {
+                Process.Start(SQLPath,"/QUIET /ACTION=Install /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER /SQLSVCACCOUNT=\"NT AUTHORITY\\SYSTEM\" /SQLSYSADMINACCOUNTS=\"BUILTIN\\Administrators\" /SAPWD=\"P@ssw0rd123!\" /SECURITYMODE=SQL /IACCEPTSQLSERVERLICENSETERMS").WaitForExit();
+            });
         }
 
         public async Task SQLDealer()
@@ -208,7 +212,7 @@ Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
             MainTextBox.Text += "\nInstalling prerequisites" + DateTime.Now.ToString("F");
             await Functions.ChocoInstall("windows-adk sql-server-management-studio sqlserver-odbcdriver vscode");
             // Install Windows ADK PE //
-            MainTextBox.Text += "\nInstalling windows ADK" + DateTime.Now.ToString("F");
+            MainTextBox.Text += "\nInstalling Windows ADK" + DateTime.Now.ToString("F");
             await InstallADKPE();
             // Install SQL Server First //
             MainTextBox.Text += "\nInstalling SQL Server" + DateTime.Now.ToString("F");
