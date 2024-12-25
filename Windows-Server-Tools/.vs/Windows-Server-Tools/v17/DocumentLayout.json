@@ -87,7 +87,7 @@
               "RelativeDocumentMoniker": "Exchange-Installer\\Form1.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs",
               "RelativeToolTip": "Exchange-Installer\\Form1.cs",
-              "ViewState": "AgIAAKQAAAAAAAAAAAAnwLAAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAIUAAAAAAAAAAAAewLAAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T19:40:01.936Z",
               "IsPinned": true,
@@ -105,19 +105,6 @@
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-21T19:43:44.73Z",
               "IsPinned": true
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Folder Directories.txt",
-              "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Folder Directories.txt",
-              "RelativeDocumentMoniker": "Folder Directories.txt",
-              "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Folder Directories.txt",
-              "RelativeToolTip": "Folder Directories.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2024-12-25T21:31:09.543Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -157,6 +144,18 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Folder Directories.txt",
+              "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Folder Directories.txt",
+              "RelativeDocumentMoniker": "Folder Directories.txt",
+              "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Folder Directories.txt",
+              "RelativeToolTip": "Folder Directories.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2024-12-25T21:31:09.543Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Setupper-Loader\\Form1.cs",
@@ -165,8 +164,7 @@
               "RelativeToolTip": "Windows-Setupper-Loader\\Form1.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAnwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T01:22:18.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T01:22:18.083Z"
             },
             {
               "$type": "Document",
@@ -177,8 +175,7 @@
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Setupper-Loader\\Form1.cs [Design]",
               "RelativeToolTip": "Windows-Setupper-Loader\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T01:22:16.856Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-25T01:22:16.856Z"
             },
             {
               "$type": "Document",
@@ -224,8 +221,7 @@
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Exchange-Installer\\Form1.cs [Design]",
               "RelativeToolTip": "Exchange-Installer\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T19:38:17.871Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-21T19:38:17.871Z"
             },
             {
               "$type": "Document",
