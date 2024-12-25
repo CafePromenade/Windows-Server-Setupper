@@ -50,8 +50,10 @@ namespace SCCM_Installer
             if (CommandLineArgs.Contains("install"))
             {
                 // Install SCCM //
+                EnableStuff = false;
                 await InstallSCCM();
                 CanClose = true;
+                EnableStuff = true;
                 Close();
             }
             else
