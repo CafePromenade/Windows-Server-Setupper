@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UsefulTools;
 
 namespace SCCM_Installer
 {
@@ -202,7 +203,7 @@ Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
             LoadLogFile();
         }
 
-        public async Task ProcessInstall()
+        public async Task ProcessInstall(bool NoDomain = false)
         {
             EnableStuff = false;
             MainTextBox.Text += "Starting install " + DateTime.Now.ToString("F");
@@ -222,8 +223,15 @@ Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
             await SQLDealer();
             // DA DHUI //
             await Functions.DaDhui(true, "install");
-            MainTextBox.Text += "\nPromoting to Domain" + DateTime.Now.ToString("F");
-            await Functions.InstallActiveDirectoryAndPromoteToDC(textBox1.Text, "P@ssw0rd", textBox1.Text.Split('.')[0].ToUpper());
+            if (!NoDomain)
+            {
+                MainTextBox.Text += "\nPromoting to Domain" + DateTime.Now.ToString("F");
+                await Functions.InstallActiveDirectoryAndPromoteToDC(textBox1.Text, "P@ssw0rd", textBox1.Text.Split('.')[0].ToUpper()); 
+            }
+            else
+            {
+                Command.RunCommandHidden("shutdown /r /f /t 0");
+            }
             EnableStuff = true;
         }
     }

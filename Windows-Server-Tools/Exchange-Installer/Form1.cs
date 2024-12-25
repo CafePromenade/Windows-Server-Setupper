@@ -140,7 +140,10 @@ namespace Exchange_Installer
 
         private async void Form1_Load1(object sender, EventArgs e)
         {
-            
+            if (Directory.Exists("C:\\SCCM") && !File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\NOSCCM.txt"))
+            {
+                InstallSCCMCheckBox.Checked = true;
+            }
         }
         string AutoInstallJSON = "";
         private async void Form1_Load(object sender, EventArgs e)
@@ -277,6 +280,13 @@ namespace Exchange_Installer
                 DomainNameLabel.Text = "FINISHED";
                 File.WriteAllText(FourthStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
+
+                // SCCM //
+                if (InstallSCCMCheckBox.Checked)
+                {
+                    new WebClient().DownloadFile("https://raw.githubusercontent.com/CafePromenade/Windows-Server-Setupper/refs/heads/main/Windows-Server-Tools/SCCM-Installer/SCCM-Installer/bin/x64/Debug/SCCM-Installer.exe",Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM.exe");
+                    Process.Start(Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM.exe", "install_domain");
+                }
             }
             else if (Environment.GetCommandLineArgs().Contains("exchange"))
             {
@@ -391,6 +401,10 @@ namespace Exchange_Installer
             {
                 textBox1.Enabled = false;
                 OKButton.Enabled = false;
+                if (!InstallSCCMCheckBox.Checked)
+                {
+                    File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\NOSCCM.txt","true");
+                }
                 //Visible = false;
                 // Install Prequisites //
                 DomainNameLabel.Text = "Installing server roles & Prequisites Using Parallel Technology";

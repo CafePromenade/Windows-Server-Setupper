@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\sccm-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\sccm-installer\\sccm-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|solutionrelative:sccm-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\sccm-installer\\installation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|solutionrelative:sccm-installer\\installation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FA2D27B1-BEFE-4002-B154-70C0C66FBF9A}|SCCM-Loader\\SCCM-Loader.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\sccm-loader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FA2D27B1-BEFE-4002-B154-70C0C66FBF9A}|SCCM-Loader\\SCCM-Loader.csproj|solutionrelative:sccm-loader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|c:\\users\\cntow\\documents\\github\\windows-server-setupper\\windows-server-tools\\sccm-installer\\sccm-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\sccm-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|solutionrelative:sccm-installer\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\sccm-installer\\installation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|solutionrelative:sccm-installer\\installation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D1E6C3E-F19D-4713-8044-01AFBD24B5F9}|SCCM-Installer\\SCCM-Installer.csproj|C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\sccm-installer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -78,7 +78,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Loader\\Form1.cs",
               "RelativeDocumentMoniker": "SCCM-Loader\\Form1.cs",
@@ -86,8 +86,7 @@
               "RelativeToolTip": "SCCM-Loader\\Form1.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAnwBkAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T01:17:28.474Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T01:17:28.474Z"
             },
             {
               "$type": "Document",
@@ -98,8 +97,7 @@
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Loader\\Form1.cs [Design]",
               "RelativeToolTip": "SCCM-Loader\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T01:17:26.856Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-25T01:17:26.856Z"
             },
             {
               "$type": "Document",
@@ -115,19 +113,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Installation.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Installation.cs",
               "RelativeDocumentMoniker": "SCCM-Installer\\Installation.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Installation.cs",
               "RelativeToolTip": "SCCM-Installer\\Installation.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAjwCEAAABgAAAAAAAAAA==",
+              "ViewState": "AgIAAF4AAAAAAAAAAAAkwOgAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-15T04:22:39.572Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Functions.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Functions.cs",
               "RelativeDocumentMoniker": "SCCM-Installer\\Functions.cs",
@@ -135,8 +133,7 @@
               "RelativeToolTip": "SCCM-Installer\\Functions.cs",
               "ViewState": "AgIAAOMAAAAAAAAAAAAcwCUAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T04:11:37.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-15T04:11:37.929Z"
             },
             {
               "$type": "Document",
@@ -146,7 +143,7 @@
               "RelativeDocumentMoniker": "SCCM-Installer\\Form1.cs",
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Form1.cs",
               "RelativeToolTip": "SCCM-Installer\\Form1.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAUwDcAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAACYAAAAAAAAAAAAwwDMAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-14T04:32:21.589Z",
               "EditorCaption": ""
@@ -160,8 +157,7 @@
               "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Form1.cs [Design]",
               "RelativeToolTip": "SCCM-Installer\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-14T04:21:29.329Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-14T04:21:29.329Z"
             }
           ]
         }

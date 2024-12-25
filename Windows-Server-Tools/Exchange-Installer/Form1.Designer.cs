@@ -41,13 +41,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.FourthStepTimeLabel = new System.Windows.Forms.Label();
             this.FullyReadyTimeLabel = new System.Windows.Forms.Label();
+            this.InstallSCCMCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 78);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(861, 20);
+            this.textBox1.Size = new System.Drawing.Size(861, 26);
             this.textBox1.TabIndex = 0;
             // 
             // OKButton
@@ -66,7 +67,7 @@
             this.DomainNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.DomainNameLabel.Location = new System.Drawing.Point(12, 21);
             this.DomainNameLabel.Name = "DomainNameLabel";
-            this.DomainNameLabel.Size = new System.Drawing.Size(291, 26);
+            this.DomainNameLabel.Size = new System.Drawing.Size(425, 37);
             this.DomainNameLabel.TabIndex = 2;
             this.DomainNameLabel.Text = "Please enter a domain name";
             // 
@@ -76,7 +77,7 @@
             this.FirstStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.FirstStepLabel.Location = new System.Drawing.Point(56, 176);
             this.FirstStepLabel.Name = "FirstStepLabel";
-            this.FirstStepLabel.Size = new System.Drawing.Size(23, 17);
+            this.FirstStepLabel.Size = new System.Drawing.Size(33, 25);
             this.FirstStepLabel.TabIndex = 3;
             this.FirstStepLabel.Text = "---";
             // 
@@ -86,7 +87,7 @@
             this.SecondStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.SecondStepLabel.Location = new System.Drawing.Point(56, 237);
             this.SecondStepLabel.Name = "SecondStepLabel";
-            this.SecondStepLabel.Size = new System.Drawing.Size(23, 17);
+            this.SecondStepLabel.Size = new System.Drawing.Size(33, 25);
             this.SecondStepLabel.TabIndex = 4;
             this.SecondStepLabel.Text = "---";
             // 
@@ -96,7 +97,7 @@
             this.ThirdStepLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.ThirdStepLabel.Location = new System.Drawing.Point(56, 332);
             this.ThirdStepLabel.Name = "ThirdStepLabel";
-            this.ThirdStepLabel.Size = new System.Drawing.Size(23, 17);
+            this.ThirdStepLabel.Size = new System.Drawing.Size(33, 25);
             this.ThirdStepLabel.TabIndex = 5;
             this.ThirdStepLabel.Text = "---";
             // 
@@ -114,7 +115,7 @@
             this.FirstToSecondLabel.ForeColor = System.Drawing.Color.Red;
             this.FirstToSecondLabel.Location = new System.Drawing.Point(58, 288);
             this.FirstToSecondLabel.Name = "FirstToSecondLabel";
-            this.FirstToSecondLabel.Size = new System.Drawing.Size(16, 13);
+            this.FirstToSecondLabel.Size = new System.Drawing.Size(23, 17);
             this.FirstToSecondLabel.TabIndex = 7;
             this.FirstToSecondLabel.Text = "---";
             // 
@@ -125,7 +126,7 @@
             this.SecondToThirdLabel.ForeColor = System.Drawing.Color.Red;
             this.SecondToThirdLabel.Location = new System.Drawing.Point(58, 384);
             this.SecondToThirdLabel.Name = "SecondToThirdLabel";
-            this.SecondToThirdLabel.Size = new System.Drawing.Size(16, 13);
+            this.SecondToThirdLabel.Size = new System.Drawing.Size(23, 17);
             this.SecondToThirdLabel.TabIndex = 8;
             this.SecondToThirdLabel.Text = "---";
             // 
@@ -136,7 +137,7 @@
             this.FirstToThirdLabel.ForeColor = System.Drawing.Color.Red;
             this.FirstToThirdLabel.Location = new System.Drawing.Point(58, 418);
             this.FirstToThirdLabel.Name = "FirstToThirdLabel";
-            this.FirstToThirdLabel.Size = new System.Drawing.Size(16, 13);
+            this.FirstToThirdLabel.Size = new System.Drawing.Size(23, 17);
             this.FirstToThirdLabel.TabIndex = 9;
             this.FirstToThirdLabel.Text = "---";
             // 
@@ -145,7 +146,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(16, 59);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(333, 13);
+            this.label1.Size = new System.Drawing.Size(496, 20);
             this.label1.TabIndex = 10;
             this.label1.Text = "We do not guarantee success installs, we are not responsible if it fails";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -156,7 +157,7 @@
             this.FourthStepTimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.FourthStepTimeLabel.Location = new System.Drawing.Point(56, 455);
             this.FourthStepTimeLabel.Name = "FourthStepTimeLabel";
-            this.FourthStepTimeLabel.Size = new System.Drawing.Size(23, 17);
+            this.FourthStepTimeLabel.Size = new System.Drawing.Size(33, 25);
             this.FourthStepTimeLabel.TabIndex = 11;
             this.FourthStepTimeLabel.Text = "---";
             // 
@@ -167,16 +168,27 @@
             this.FullyReadyTimeLabel.ForeColor = System.Drawing.Color.Red;
             this.FullyReadyTimeLabel.Location = new System.Drawing.Point(58, 508);
             this.FullyReadyTimeLabel.Name = "FullyReadyTimeLabel";
-            this.FullyReadyTimeLabel.Size = new System.Drawing.Size(16, 13);
+            this.FullyReadyTimeLabel.Size = new System.Drawing.Size(23, 17);
             this.FullyReadyTimeLabel.TabIndex = 12;
             this.FullyReadyTimeLabel.Text = "---";
             // 
+            // InstallSCCMCheckBox
+            // 
+            this.InstallSCCMCheckBox.AutoSize = true;
+            this.InstallSCCMCheckBox.Location = new System.Drawing.Point(604, 48);
+            this.InstallSCCMCheckBox.Name = "InstallSCCMCheckBox";
+            this.InstallSCCMCheckBox.Size = new System.Drawing.Size(127, 24);
+            this.InstallSCCMCheckBox.TabIndex = 13;
+            this.InstallSCCMCheckBox.Text = "Install SCCM";
+            this.InstallSCCMCheckBox.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(884, 572);
+            this.Controls.Add(this.InstallSCCMCheckBox);
             this.Controls.Add(this.FullyReadyTimeLabel);
             this.Controls.Add(this.FourthStepTimeLabel);
             this.Controls.Add(this.label1);
@@ -215,6 +227,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label FourthStepTimeLabel;
         private System.Windows.Forms.Label FullyReadyTimeLabel;
+        private System.Windows.Forms.CheckBox InstallSCCMCheckBox;
     }
 }
 

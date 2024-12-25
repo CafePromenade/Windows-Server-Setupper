@@ -46,8 +46,13 @@ namespace SCCM_Installer
         {
             var CommandLineArgs = Environment.GetCommandLineArgs();
 
+            // INSTALL IF ALREADY PROMOTED TO DC //
+            if (CommandLineArgs.Contains("install_domain"))
+            {
+                await ProcessInstall(true);
+            }
             // INSTALL PREREQUISITES BEFORE PROMOTE TO DC TO SAVE A REBOOT //
-            if (CommandLineArgs.Contains("install"))
+            else if (CommandLineArgs.Contains("install"))
             {
                 // Install SCCM //
                 EnableStuff = false;
