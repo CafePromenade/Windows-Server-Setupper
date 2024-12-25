@@ -1,0 +1,10 @@
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\bin\Debug\Windows-Setupper-Loader.exe.config
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\bin\Debug\Windows-Setupper-Loader.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\bin\Debug\Windows-Setupper-Loader.pdb
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\obj\Debug\Windows-Setupper-Loader.csproj.AssemblyReference.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\obj\Debug\Windows_Setupper_Loader.Form1.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\obj\Debug\Windows_Setupper_Loader.Properties.Resources.resources
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\obj\Debug\Windows-Setupper-Loader.csproj.GenerateResource.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\obj\Debug\Windows-Setupper-Loader.csproj.CoreCompileInputs.cache
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\obj\Debug\Windows-Setupper-Loader.exe
+C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Windows-Setupper-Loader\obj\Debug\Windows-Setupper-Loader.pdb

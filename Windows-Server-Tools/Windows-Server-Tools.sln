@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExchangeInstallerLoader", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exchange-Install-API", "Exchange-Install-API\Exchange-Install-API.csproj", "{03EEB0C8-7584-4630-818C-9557A96F2DAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Windows-Setupper-Loader", "Windows-Setupper-Loader\Windows-Setupper-Loader.csproj", "{93BFCFA0-8860-4518-9F04-70AC23436713}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{03EEB0C8-7584-4630-818C-9557A96F2DAF}.Release|ARM64.Build.0 = Release|Any CPU
 		{03EEB0C8-7584-4630-818C-9557A96F2DAF}.Release|x64.ActiveCfg = Release|Any CPU
 		{03EEB0C8-7584-4630-818C-9557A96F2DAF}.Release|x64.Build.0 = Release|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Debug|x64.Build.0 = Debug|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Release|ARM64.Build.0 = Release|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Release|x64.ActiveCfg = Release|Any CPU
+		{93BFCFA0-8860-4518-9F04-70AC23436713}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
