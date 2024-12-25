@@ -1,0 +1,8 @@
+Exchange Installer //
+C:\Exchange
+
+// SCCM Installer //
+C:\SCCM
+
+// SQL Server Installer //
+C:\SQL_Setup// /
