@@ -49,11 +49,14 @@ namespace SCCM_Installer
             string SQLPath = "C:\\SQL_Setup\\setup.exe";
             string script = $"Start-Process -FilePath \"{SQLPath}\" -ArgumentList \"/QUIET /ACTION=Install /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER /SQLSVCACCOUNT='NT AUTHORITY\\SYSTEM' /SQLSYSADMINACCOUNTS='BUILTIN\\Administrators' /SAPWD='P@ssw0rd123!' /SECURITYMODE=SQL /IACCEPTSQLSERVERLICENSETERMS\" -Wait";
 
-            //await Functions.RunPowerShellScript(script);
-            await Task.Run(() =>
+            if (!QuickInstall)
             {
-                Process.Start(SQLPath,"/QUIET /ACTION=Install /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER /SQLSVCACCOUNT=\"NT AUTHORITY\\SYSTEM\" /SQLSYSADMINACCOUNTS=\"BUILTIN\\Administrators\" /SAPWD=\"P@ssw0rd123!\" /SECURITYMODE=SQL /IACCEPTSQLSERVERLICENSETERMS").WaitForExit();
-            });
+                //await Functions.RunPowerShellScript(script);
+                await Task.Run(() =>
+                {
+                    Process.Start(SQLPath, "/QUIET /ACTION=Install /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER /SQLSVCACCOUNT=\"NT AUTHORITY\\SYSTEM\" /SQLSYSADMINACCOUNTS=\"BUILTIN\\Administrators\" /SAPWD=\"P@ssw0rd123!\" /SECURITYMODE=SQL /IACCEPTSQLSERVERLICENSETERMS").WaitForExit();
+                }); 
+            }
         }
 
         public async Task SQLDealer()
@@ -122,11 +125,14 @@ Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
 
         public async Task InstallADKPE()
         {
-            new WebClient().DownloadFile("http://exchange-install.bigheados.com/files/adkwinpesetup.exe",Environment.GetEnvironmentVariable("APPDATA") + "\\ADKPE.exe");
-            await Task.Run(() =>
+            if (!QuickInstall)
             {
-                Process.Start(Environment.GetEnvironmentVariable("APPDATA") + "\\ADKPE.exe", "/quiet").WaitForExit();
-            });
+                new WebClient().DownloadFile("http://exchange-install.bigheados.com/files/adkwinpesetup.exe", Environment.GetEnvironmentVariable("APPDATA") + "\\ADKPE.exe");
+                await Task.Run(() =>
+                {
+                    Process.Start(Environment.GetEnvironmentVariable("APPDATA") + "\\ADKPE.exe", "/quiet").WaitForExit();
+                }); 
+            }
         }
         public async Task InstallSCCM()
         {
@@ -203,13 +209,18 @@ Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
             LoadLogFile();
         }
 
+        bool QuickInstall => File.Exists("C:\\quick.txt");
+
         public async Task ProcessInstall(bool NoDomain = false)
         {
             EnableStuff = false;
             MainTextBox.Text += "Starting install " + DateTime.Now.ToString("F");
             MainTextBox.Text += "\nInstalling windows features " + DateTime.Now.ToString("F");
-            await Functions.RunPowerShellScript("Install-WindowsFeature -Name Web-Server, Web-Windows-Auth, Web-Asp-Net45, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Mgmt-Console, NET-Framework-Features, NET-Framework-Core, BITS, RDC, RSAT-ADDS -IncludeManagementTools");
-            await Functions.RunPowerShellScript("Install-WindowsFeature -Name UpdateServices -IncludeManagementTools");
+            if (!QuickInstall)
+            {
+                await Functions.RunPowerShellScript("Install-WindowsFeature -Name Web-Server, Web-Windows-Auth, Web-Asp-Net45, Web-ISAPI-Ext, Web-ISAPI-Filter, Web-Mgmt-Console, NET-Framework-Features, NET-Framework-Core, BITS, RDC, RSAT-ADDS -IncludeManagementTools");
+                await Functions.RunPowerShellScript("Install-WindowsFeature -Name UpdateServices -IncludeManagementTools"); 
+            }
             MainTextBox.Text += "\nInstalling prerequisites" + DateTime.Now.ToString("F");
             await Functions.ChocoInstall("windows-adk sql-server-management-studio sqlserver-odbcdriver vscode");
             // Install Windows ADK PE //

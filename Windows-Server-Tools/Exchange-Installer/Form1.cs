@@ -136,6 +136,7 @@ namespace Exchange_Installer
             }
         }
 
+        bool QuickInstall => File.Exists("C:\\quick.txt");
 
 
         private async void Form1_Load1(object sender, EventArgs e)
