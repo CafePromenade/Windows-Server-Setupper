@@ -26,5 +26,10 @@ namespace ExchangeInstallerLoader
             Process.Start(Environment.GetEnvironmentVariable("TEMP") + "\\EXCHANGE.exe");
             Environment.Exit(0);
         }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

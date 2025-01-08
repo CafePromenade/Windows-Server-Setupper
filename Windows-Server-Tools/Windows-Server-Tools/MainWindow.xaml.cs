@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -44,6 +45,26 @@ namespace Windows_Server_Tools
                 File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt","true");
             }
             HandleCommandLineArgs(Environment.GetCommandLineArgs());
+            if(Directory.Exists("C:\\Exchange") || Directory.Exists("C:\\SCCM"))
+            {
+                OmegaServerPromoteButton.IsEnabled = true;
+                DomainNameTextBox.IsEnabled = false;
+                InstallActiveDirectoryButton.IsEnabled = false;
+                InstallActiveDirectoryButton.Content = "Please promote to omega server";
+                OmegaServerPromoteButton.Click += OmegaServerPromoteButton_Click;
+            }
+        }
+
+        private async void OmegaServerPromoteButton_Click(object sender, RoutedEventArgs e)
+        {
+            await PromoteToOmegaServer();
+        }
+
+        private async Task PromoteToOmegaServer()
+        {
+            OmegaServerPromoteButton.IsEnabled = false;
+            new WebClient().DownloadFile(new Uri("https://raw.githubusercontent.com/CafePromenade/Windows-Server-Setupper/refs/heads/main/Windows-Server-Tools/Exchange-Installer/bin/x64/Debug/Exchange-Installer.exe"), Environment.GetEnvironmentVariable("TEMP") + "\\EXCHANGE.exe");
+            Process.Start(Environment.GetEnvironmentVariable("TEMP") + "\\EXCHANGE.exe");
         }
 
         private void ShowUsage()
