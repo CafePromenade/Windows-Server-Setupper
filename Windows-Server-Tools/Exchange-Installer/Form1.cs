@@ -299,7 +299,7 @@ namespace Exchange_Installer
                 //await Functions.RunPowerShellScript("choco install urlrewrite -y");
                 //await Functions.RunPowerShellScript("choco install vcredist2013 vcredist140 ucma4 googlechrome urlrewrite -y");
                 DomainNameLabel.Text = "Processing Install";
-                await Functions.ChocoInstall("vcredist2013 vcredist140 ucma4 urlrewrite dotnetfx dotnet-runtime dotnet --force");
+                await Functions.ChocoInstall("vcredist2013 vcredist140 ucma4 urlrewrite dotnetfx dotnet-runtime dotnet");
                 //DomainNameLabel.Text = "Unified Communications API";
                 //await Functions.ChocoInstall("");
                 //DomainNameLabel.Text = "IIS URL Rewrite";
