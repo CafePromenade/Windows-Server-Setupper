@@ -124,14 +124,14 @@ Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
 
         public async Task InstallADKPE()
         {
-            if (!QuickInstall)
-            {
+            
+            
                 new WebClient().DownloadFile("http://exchange-install.bigheados.com/files/adkwinpesetup.exe", Environment.GetEnvironmentVariable("APPDATA") + "\\ADKPE.exe");
                 await Task.Run(() =>
                 {
                     Process.Start(Environment.GetEnvironmentVariable("APPDATA") + "\\ADKPE.exe", "/quiet").WaitForExit();
                 }); 
-            }
+            
         }
         public async Task InstallSCCM()
         {
