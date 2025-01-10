@@ -49,14 +49,13 @@ namespace SCCM_Installer
             string SQLPath = "C:\\SQL_Setup\\setup.exe";
             string script = $"Start-Process -FilePath \"{SQLPath}\" -ArgumentList \"/QUIET /ACTION=Install /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER /SQLSVCACCOUNT='NT AUTHORITY\\SYSTEM' /SQLSYSADMINACCOUNTS='BUILTIN\\Administrators' /SAPWD='P@ssw0rd123!' /SECURITYMODE=SQL /IACCEPTSQLSERVERLICENSETERMS\" -Wait";
 
-            if (!QuickInstall)
-            {
+            
                 //await Functions.RunPowerShellScript(script);
                 await Task.Run(() =>
                 {
                     Process.Start(SQLPath, "/QUIET /ACTION=Install /FEATURES=SQLENGINE /INSTANCENAME=MSSQLSERVER /SQLSVCACCOUNT=\"NT AUTHORITY\\SYSTEM\" /SQLSYSADMINACCOUNTS=\"BUILTIN\\Administrators\" /SAPWD=\"P@ssw0rd123!\" /SECURITYMODE=SQL /IACCEPTSQLSERVERLICENSETERMS").WaitForExit();
                 }); 
-            }
+            
         }
 
         public async Task SQLDealer()
