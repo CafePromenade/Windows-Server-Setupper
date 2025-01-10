@@ -197,7 +197,8 @@ namespace Exchange_Installer
                 File.WriteAllText(SecondStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
                 string exchangeSetupPath = "\"C:\\Exchange\\Setup.exe\"";
-
+                // DELETE TASK //
+                await Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
 
                 // Prepare Exchange environment //
                 bool Schema = false, AD = false, AllDomain = false, Domain = false;
@@ -243,9 +244,7 @@ namespace Exchange_Installer
                 // Save Time Lapse //
                 File.WriteAllText(ThirdStepTimeFile, DateTime.Now.ToString("O"));
                 RetrieveTimes();
-                // DELETE TASK //
-                await Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
-                await Task.Delay(10000);
+                await Task.Delay(3000);
                 DoNotClose = false;
                 DomainNameLabel.Text = "Exchange Server 2019 installed";
                 await Functions.DaDhui(false, "post_install");
