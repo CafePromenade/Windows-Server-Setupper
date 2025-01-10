@@ -170,6 +170,10 @@ namespace Exchange_Installer
                 File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\CompletedFirstTask.txt","true");
                 MainProgressBar.Style = ProgressBarStyle.Blocks;
                 DomainNameLabel.Text = "Please enter a new domain name below!";
+                if (Directory.Exists("C:\\Program Files\\Microsoft UCMA 4.0"))
+                {
+                    File.WriteAllText("C:\\quick.txt","true");
+                }
             }
 
             if (Environment.GetCommandLineArgs().Contains("process_install"))
@@ -241,7 +245,7 @@ namespace Exchange_Installer
                 RetrieveTimes();
                 // DELETE TASK //
                 await Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
-                //await Task.Delay(2000);
+                await Task.Delay(10000);
                 DoNotClose = false;
                 DomainNameLabel.Text = "Exchange Server 2019 installed";
                 await Functions.DaDhui(false, "post_install");
@@ -267,7 +271,14 @@ namespace Exchange_Installer
 ");
                 await Functions.ConfigureSendConnectors(FQDN);
                 await Functions.ClearPendingReboots();
-                await Functions.ConfigureChromeStuff();
+                try
+                {
+                    await Functions.ConfigureChromeStuff();
+                }
+                catch 
+                {
+
+                }
                 await Functions.SetStaticIP("127.0.0.1");
                 //await Command.RunCommand("iisreset");
                 try

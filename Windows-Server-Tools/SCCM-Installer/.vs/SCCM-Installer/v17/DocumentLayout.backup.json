@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 389,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -71,6 +71,19 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Installation.cs",
+              "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Installation.cs",
+              "RelativeDocumentMoniker": "SCCM-Installer\\Installation.cs",
+              "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Installation.cs",
+              "RelativeToolTip": "SCCM-Installer\\Installation.cs",
+              "ViewState": "AgIAAMoAAAAAAAAAAAAuwNcAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-15T04:22:39.572Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -113,19 +126,6 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Installation.cs",
-              "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Installation.cs",
-              "RelativeDocumentMoniker": "SCCM-Installer\\Installation.cs",
-              "ToolTip": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Installation.cs",
-              "RelativeToolTip": "SCCM-Installer\\Installation.cs",
-              "ViewState": "AgIAAMoAAAAAAAAAAADwv9MAAAA6AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T04:22:39.572Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Functions.cs",
               "DocumentMoniker": "C:\\Users\\cntow\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\SCCM-Installer\\SCCM-Installer\\Functions.cs",
@@ -134,8 +134,7 @@
               "RelativeToolTip": "SCCM-Installer\\Functions.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-15T04:11:37.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-15T04:11:37.929Z"
             },
             {
               "$type": "Document",
