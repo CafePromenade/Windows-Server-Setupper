@@ -256,20 +256,27 @@ namespace Exchange_Installer
                 OKButton.Enabled = false;
                 textBox1.Enabled = false;
                 DomainNameLabel.Text = "Finishing a few more tasks..";
-                Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
-                await Functions.RunPowerShellScript("Get-Service | Where-Object {$_.DisplayName -like \"*Exchange*\"} | ForEach-Object {\r\n    Set-Service -Name $_.Name -StartupType Automatic\r\n}\r\n");
-                await Functions.RunPowerShellScript("Get-Service | Where-Object {$_.DisplayName -like \"*Exchange*\" -and $_.Status -ne \"Running\"} | ForEach-Object {\r\n    Start-Service -Name $_.Name\r\n}\r\n");
-                await Functions.RunPowerShellScript("iisreset");
-                await Functions.RunPowerShellScript("iisreset");
-                await Functions.RunPowerShellScript("Restart-Service MSExchange* -Force");
-                await Functions.RunPowerShellScript("Add-DnsServerResourceRecordMX -Name \"@\" -ZoneName \"" + DomainName + "." + DomainCOM + "\" -MailExchange \"" + Environment.MachineName + "." + DomainName + "." + DomainCOM + "\" -Preference 10");
-                await Functions.CreateInternalMailSendConnector(FQDN);
-                await Functions.RunExchangePowerShellScript($@"
+                try
+                {
+                    Command.RunCommandHidden("schtasks /delete /tn \"" + "Run EXCHANGE\" /f");
+                    await Functions.RunPowerShellScript("Get-Service | Where-Object {$_.DisplayName -like \"*Exchange*\"} | ForEach-Object {\r\n    Set-Service -Name $_.Name -StartupType Automatic\r\n}\r\n");
+                    await Functions.RunPowerShellScript("Get-Service | Where-Object {$_.DisplayName -like \"*Exchange*\" -and $_.Status -ne \"Running\"} | ForEach-Object {\r\n    Start-Service -Name $_.Name\r\n}\r\n");
+                    await Functions.RunPowerShellScript("iisreset");
+                    await Functions.RunPowerShellScript("iisreset");
+                    await Functions.RunPowerShellScript("Restart-Service MSExchange* -Force");
+                    await Functions.RunPowerShellScript("Add-DnsServerResourceRecordMX -Name \"@\" -ZoneName \"" + DomainName + "." + DomainCOM + "\" -MailExchange \"" + Environment.MachineName + "." + DomainName + "." + DomainCOM + "\" -Preference 10");
+                    await Functions.CreateInternalMailSendConnector(FQDN);
+                    await Functions.RunExchangePowerShellScript($@"
     Set-ReceiveConnector -Identity '{Environment.MachineName}\Default Frontend {Environment.MachineName}' -Fqdn '{FQDN}';
     Set-SendConnector -Identity 'Internal Mail' -Fqdn '{FQDN}';
 ");
-                await Functions.ConfigureSendConnectors(FQDN);
-                await Functions.ClearPendingReboots();
+                    await Functions.ConfigureSendConnectors(FQDN);
+                    await Functions.ClearPendingReboots();
+                }
+                catch 
+                {
+
+                }
                 try
                 {
                     await Functions.ConfigureChromeStuff();
@@ -278,6 +285,7 @@ namespace Exchange_Installer
                 {
 
                 }
+
                 await Functions.SetStaticIP("127.0.0.1");
                 //await Command.RunCommand("iisreset");
                 try
@@ -293,9 +301,8 @@ namespace Exchange_Installer
                 RetrieveTimes();
 
                 // SCCM //
-                if (InstallSCCMCheckBox.Checked)
+                if (InstallSCCMCheckBox.Checked && File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM.exe"))
                 {
-                    new WebClient().DownloadFile("https://raw.githubusercontent.com/CafePromenade/Windows-Server-Setupper/refs/heads/main/Windows-Server-Tools/SCCM-Installer/SCCM-Installer/bin/x64/Debug/SCCM-Installer.exe",Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM.exe");
                     Process.Start(Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM.exe", "install_domain");
                 }
             }
@@ -415,6 +422,10 @@ namespace Exchange_Installer
                 if (!InstallSCCMCheckBox.Checked)
                 {
                     File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\NOSCCM.txt","true");
+                }
+                if (InstallSCCMCheckBox.Checked)
+                {
+                    new WebClient().DownloadFile("https://raw.githubusercontent.com/CafePromenade/Windows-Server-Setupper/refs/heads/main/Windows-Server-Tools/SCCM-Installer/SCCM-Installer/bin/x64/Debug/SCCM-Installer.exe", Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM.exe");
                 }
                 //Visible = false;
                 // Install Prequisites //
