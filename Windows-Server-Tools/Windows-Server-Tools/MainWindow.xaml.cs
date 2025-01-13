@@ -36,6 +36,14 @@ namespace Windows_Server_Tools
 
         private async void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            if (Directory.Exists("C:\\Exchange") || Directory.Exists("C:\\SCCM"))
+            {
+                OmegaServerPromoteButton.IsEnabled = true;
+                DomainNameTextBox.IsEnabled = false;
+                InstallActiveDirectoryButton.IsEnabled = false;
+                InstallActiveDirectoryButton.Content = "Please promote to omega server";
+                OmegaServerPromoteButton.Click += OmegaServerPromoteButton_Click;
+            }
             if (!File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt"))
             {
                 // Set Static IP //
@@ -45,14 +53,6 @@ namespace Windows_Server_Tools
                 File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt","true");
             }
             HandleCommandLineArgs(Environment.GetCommandLineArgs());
-            if(Directory.Exists("C:\\Exchange") || Directory.Exists("C:\\SCCM"))
-            {
-                OmegaServerPromoteButton.IsEnabled = true;
-                DomainNameTextBox.IsEnabled = false;
-                InstallActiveDirectoryButton.IsEnabled = false;
-                InstallActiveDirectoryButton.Content = "Please promote to omega server";
-                OmegaServerPromoteButton.Click += OmegaServerPromoteButton_Click;
-            }
         }
 
         private async void OmegaServerPromoteButton_Click(object sender, RoutedEventArgs e)
