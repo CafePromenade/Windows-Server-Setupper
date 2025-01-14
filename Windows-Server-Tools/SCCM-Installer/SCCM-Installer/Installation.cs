@@ -121,6 +121,8 @@ Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
 ".Replace("MSSQLSERVER",Environment.MachineName);
 
             await Functions.RunExchangePowerShellScript(StartSQL_Script);
+            // Wait for sql server //
+            await Functions.WaitForServiceAsync("MSSQLSERVER");
             await Functions.RunExchangePowerShellScript(CreateDatabaseScript);
             await Functions.RunExchangePowerShellScript(EnableTCP_Script);
         }

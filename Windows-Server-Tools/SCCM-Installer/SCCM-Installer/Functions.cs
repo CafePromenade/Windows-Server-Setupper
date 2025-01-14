@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -621,5 +622,31 @@ Remove-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\WindowsUpdate
                 Console.WriteLine($"Failed to create task: {ex.Message}");
             }
         }
+        public static async Task WaitForServiceAsync(string serviceName)
+        {
+            Console.WriteLine($"Waiting for the {serviceName} service to be installed...");
+
+            while (!CheckServiceExists(serviceName))
+            {
+                await Task.Delay(5000); // Wait for 5 seconds before checking again
+            }
+        }
+
+        public static bool CheckServiceExists(string serviceName)
+        {
+            ServiceController[] services = ServiceController.GetServices();
+
+            foreach (ServiceController service in services)
+            {
+                if (service.ServiceName.Equals(serviceName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
+
+    
 }
