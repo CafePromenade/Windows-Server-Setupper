@@ -83,7 +83,7 @@ namespace Windows_Server_Tools
                         File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\ChocoComplete.txt","true");
                         await Chocolatey.InstallChocolatey();
 
-                        ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx"); 
+                        //ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx"); 
                     }
                     return;
                 }
@@ -307,7 +307,7 @@ namespace Windows_Server_Tools
 
             // Install Stuff //
             Visibility = Visibility.Hidden;
-            await ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx");
+            //await ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx");
         }
 
         public string ReplaceWithDomainStuff(string input)
