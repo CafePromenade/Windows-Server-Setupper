@@ -42,6 +42,7 @@ namespace Windows_Server_Tools
                 DomainNameTextBox.IsEnabled = false;
                 InstallActiveDirectoryButton.IsEnabled = false;
                 InstallActiveDirectoryButton.Content = "Please promote to omega server";
+                SCCMButton.IsEnabled = true;
                 OmegaServerPromoteButton.Click += OmegaServerPromoteButton_Click;
             }
             if (!File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt"))
@@ -345,6 +346,13 @@ namespace Windows_Server_Tools
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             Process.Start("ncpa.cpl");
+        }
+
+        private void SCCMButton_Click(object sender, RoutedEventArgs e)
+        {
+            SCCMButton.IsEnabled = false;
+            new WebClient().DownloadFile("https://raw.githubusercontent.com/CafePromenade/Windows-Server-Setupper/refs/heads/main/Windows-Server-Tools/SCCM-Installer/SCCM-Installer/bin/x64/Debug/SCCM-Installer.exe", Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM_INSTALLER.exe");
+            Process.Start(Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM_INSTALLER.exe");
         }
     }
 }

@@ -21,7 +21,8 @@
             <TextBox x:Name="ChocoSoftwareTextBox" TextWrapping="Wrap" Margin="13,85,23,111"/>
             <TextBlock HorizontalAlignment="Left" Margin="13,64,0,0" TextWrapping="Wrap" Text="Enter software you would like to install" VerticalAlignment="Top"/>
             <TextBlock HorizontalAlignment="Left" Margin="72,172,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="20" FontFamily="Bahnschrift"><Run Language="en-ca" Text="Omega Server"/></TextBlock>
-            <Button x:Name="OmegaServerPromoteButton" Content="Promote to Omega Server" HorizontalAlignment="Left" Height="37" Margin="13,201,0,0" VerticalAlignment="Top" Width="246" IsEnabled="False"/>
+            <Button x:Name="OmegaServerPromoteButton" Content="Promote to Omega Server" HorizontalAlignment="Left" Height="37" Margin="13,201,0,0" VerticalAlignment="Top" Width="155" IsEnabled="False"/>
+            <Button x:Name="SCCMButton" Content="SCCM Only" HorizontalAlignment="Left" Height="37" Margin="173,201,0,0" VerticalAlignment="Top" Width="99" IsEnabled="False" Click="SCCMButton_Click"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Height="1" Margin="23,270,0,0" VerticalAlignment="Top" Width="9"/>
         <Grid x:Name="InstallServerStuffGrid" HorizontalAlignment="Left" Height="152" Margin="23,270,0,0" VerticalAlignment="Top" Width="715" Background="#FFB4E6E7">

@@ -60,6 +60,9 @@ namespace SCCM_Installer
 
         public async Task SQLDealer()
         {
+            string StartSQL_Script = "Start-Service -Name \"MSSQLSERVER\"";
+
+
             string EnableTCP_Script = @"# Get access to SqlWmiManagement DLL on the machine with SQL
 # we are on, which is where SQL Server was installed.
 # Note: This is installed in the GAC by SQL Server Setup.
@@ -117,7 +120,7 @@ Invoke-Sqlcmd -Query ""CREATE DATABASE [$SCCMDBName] COLLATE SQL_Latin1_General_
 Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
 ".Replace("MSSQLSERVER",Environment.MachineName);
 
-
+            await Functions.RunExchangePowerShellScript(StartSQL_Script);
             await Functions.RunExchangePowerShellScript(CreateDatabaseScript);
             await Functions.RunExchangePowerShellScript(EnableTCP_Script);
         }
