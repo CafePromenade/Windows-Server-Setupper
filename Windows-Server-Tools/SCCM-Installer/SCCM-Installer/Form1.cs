@@ -61,6 +61,11 @@ namespace SCCM_Installer
                 EnableStuff = true;
                 Close();
             }
+            else if (CommandLineArgs.Contains("dealer"))
+            {
+                await SQLDealer();
+                //Close();
+            }
             else
             {
 

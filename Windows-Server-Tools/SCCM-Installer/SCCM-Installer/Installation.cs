@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.ServiceProcess;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -57,11 +59,46 @@ namespace SCCM_Installer
                 }); 
             
         }
+        static void StartSQLServerService(string instanceName)
+        {
+            string serviceName = instanceName == "MSSQLSERVER" ? "MSSQLSERVER" : $"MSSQL${instanceName}";
+
+            using (ServiceController service = new ServiceController(serviceName))
+            {
+                if (service.Status != ServiceControllerStatus.Running)
+                {
+                    service.Start();
+                    service.WaitForStatus(ServiceControllerStatus.Running);
+                    Console.WriteLine($"SQL Server service '{serviceName}' started.");
+                }
+                else
+                {
+                    Console.WriteLine($"SQL Server service '{serviceName}' is already running.");
+                }
+            }
+        }
+
+        static void CreateDatabase(string instanceName, string databaseName)
+        {
+            string connectionString = $"Server=localhost\\{instanceName};Integrated Security=True;";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                string createDbQuery = $"CREATE DATABASE {databaseName} COLLATE SQL_Latin1_General_CP1_CI_AS;";
+                using (SqlCommand command = new SqlCommand(createDbQuery, connection))
+                {
+                    command.ExecuteNonQuery();
+                    Console.WriteLine($"Database '{databaseName}' created successfully.");
+                }
+            }
+        }
 
         public async Task SQLDealer()
         {
             string StartSQL_Script = "Start-Service -Name \"MSSQLSERVER\"";
 
+            //await Task.Delay(-1);
 
             string EnableTCP_Script = @"# Get access to SqlWmiManagement DLL on the machine with SQL
 # we are on, which is where SQL Server was installed.
@@ -89,6 +126,8 @@ $tcp.Alter()
 Restart-Service -Name MSSQLSERVER -Force";
 
             string CreateDatabaseScript = @"# Variables
+Set-ExecutionPolicy Bypass -Scope LocalMachine
+
 $SQLInstance = ""MSSQLSERVER""  # Replace with your instance name if different
 $SCCMDBName = ""CM_XYZ""  # Desired SCCM database name
 
@@ -116,15 +155,44 @@ Restart-Service -Name ""MSSQLSERVER""
 
 # Create SCCM Database
 Invoke-Sqlcmd -Query ""CREATE DATABASE [$SCCMDBName] COLLATE SQL_Latin1_General_CP1_CI_AS;"" -ServerInstance $SQLInstance
+Start-Sleep -Seconds 5.5
 
 Write-Host ""TCP/IP has been enabled and database [$SCCMDBName] created.""
 ".Replace("MSSQLSERVER",Environment.MachineName);
-
+            File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\SQLScript.ps1",CreateDatabaseScript);
             await Functions.RunExchangePowerShellScript(StartSQL_Script);
             // Wait for sql server //
-            await Functions.WaitForServiceAsync("MSSQLSERVER");
-            await Functions.RunExchangePowerShellScript(CreateDatabaseScript);
+            //await Functions.WaitForServiceAsync("MSSQLSERVER");
+            string myConnectionString = "Server=localhost;Database=master;User Id=sa;Password=P@ssw0rd123!;";
+            try
+            {
+                using (var connection = new SqlConnection(myConnectionString))
+                {
+                    connection.Open();
+                    var command = connection.CreateCommand();
+                    command.CommandText = "CREATE DATABASE CM_XYZ";
+                    command.ExecuteNonQuery();
+                }
+
+            }
+            catch 
+            {
+
+            }
+            await Functions.RunPowerShellScript(CreateDatabaseScript);
+            ExecuteScript(File.ReadAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\SQLScript.ps1"));
+            await Functions.RunPowerShellScript(@"Invoke-Sqlcmd -Query ""CREATE DATABASE [hui] COLLATE SQL_Latin1_General_CP1_CI_AS;"" -ServerInstance " + Environment.MachineName);
             await Functions.RunExchangePowerShellScript(EnableTCP_Script);
+        }
+
+        public void ExecuteScript(string pathToScript)
+        {
+            var scriptArguments = "-ExecutionPolicy Bypass -File \"" + pathToScript + "\"";
+            var processStartInfo = new ProcessStartInfo("powershell.exe", scriptArguments);
+
+            var process = new Process();
+            process.StartInfo = processStartInfo;
+            process.Start();
         }
 
         public async Task InstallADKPE()
