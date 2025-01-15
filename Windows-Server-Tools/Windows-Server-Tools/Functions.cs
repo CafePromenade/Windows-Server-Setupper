@@ -27,7 +27,7 @@ namespace Windows_Server_Tools
 
             await Chocolatey.InstallChocolatey();
 
-            ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx");
+            //ChocoInstall("filezilla winscp vscode googlechrome veracrypt firefox opera python nodejs dotnetfx");
         }
         public static void SetStaticIp(string adapterName, string ipAddress, string subnetMask)
         {

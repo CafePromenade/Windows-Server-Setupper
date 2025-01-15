@@ -17,3 +17,4 @@ C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\E
 C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.exe
 C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.pdb
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.Form1.resources
+C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.Form1.resources
