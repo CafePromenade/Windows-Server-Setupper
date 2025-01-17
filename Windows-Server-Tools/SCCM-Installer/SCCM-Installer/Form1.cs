@@ -61,6 +61,11 @@ namespace SCCM_Installer
                 EnableStuff = true;
                 Close();
             }
+            // INSTALL SIDE SERVER (WITHOUT PROMOTING TO DC)
+            else if (CommandLineArgs.Contains("side_server"))
+            {
+                await InstallSideServer();
+            }
             else if (CommandLineArgs.Contains("dealer"))
             {
                 await SQLDealer();

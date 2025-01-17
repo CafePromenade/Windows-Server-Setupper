@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-server-tools\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{93BFCFA0-8860-4518-9F04-70AC23436713}|Windows-Setupper-Loader\\Windows-Setupper-Loader.csproj|C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-setupper-loader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{93BFCFA0-8860-4518-9F04-70AC23436713}|Windows-Setupper-Loader\\Windows-Setupper-Loader.csproj|solutionrelative:windows-setupper-loader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|c:\\users\\jackson\\documents\\github\\windows-server-setupper\\windows-server-tools\\windows-server-tools\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\functions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|c:\\users\\jackson\\documents\\github\\windows-server-setupper\\windows-server-tools\\windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CACFBE4D-A961-4888-AB53-3D30076CC9D3}|Windows-Server-Tools\\Windows-Server-Tools.csproj|solutionrelative:windows-server-tools\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{93BFCFA0-8860-4518-9F04-70AC23436713}|Windows-Setupper-Loader\\Windows-Setupper-Loader.csproj|C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\windows-setupper-loader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{93BFCFA0-8860-4518-9F04-70AC23436713}|Windows-Setupper-Loader\\Windows-Setupper-Loader.csproj|solutionrelative:windows-setupper-loader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{251FD4C5-F827-48C9-9494-15AF83917B70}|ExchangeInstallerLoader\\ExchangeInstallerLoader.csproj|C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\exchangeinstallerloader\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -85,7 +85,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 389,
-          "SelectedChildIndex": 25,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
@@ -146,14 +146,18 @@
               "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\MainWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\MainWindow.xaml.cs",
               "RelativeToolTip": "Windows-Server-Tools\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAB8BAAAAAAAAAAAQwDYBAABNAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAmwEsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-05T16:41:52.605Z",
               "EditorCaption": ""
@@ -169,10 +173,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2024-12-25T21:31:09.543Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
@@ -207,20 +207,18 @@
               "RelativeToolTip": "Windows-Setupper-Loader\\Form1.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAnwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T01:22:18.083Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-25T01:22:18.083Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Setupper-Loader\\Form1.cs",
               "RelativeDocumentMoniker": "Windows-Setupper-Loader\\Form1.cs",
               "ToolTip": "C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Setupper-Loader\\Form1.cs [Design]",
               "RelativeToolTip": "Windows-Setupper-Loader\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-25T01:22:16.856Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-12-25T01:22:16.856Z"
             },
             {
               "$type": "Document",
@@ -317,13 +315,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Functions.cs",
               "DocumentMoniker": "C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Functions.cs",
               "RelativeDocumentMoniker": "Windows-Server-Tools\\Functions.cs",
               "ToolTip": "C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\Functions.cs",
               "RelativeToolTip": "Windows-Server-Tools\\Functions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAAHkAAAAAAAAAAAAcwBsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-18T14:42:41.36Z",
               "EditorCaption": ""
@@ -337,7 +335,8 @@
               "ToolTip": "C:\\Users\\Jackson\\Documents\\GitHub\\Windows-Server-Setupper\\Windows-Server-Tools\\Windows-Server-Tools\\App.xaml",
               "RelativeToolTip": "Windows-Server-Tools\\App.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-09-06T00:41:41.516Z"
+              "WhenOpened": "2024-09-06T00:41:41.516Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

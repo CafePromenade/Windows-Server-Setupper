@@ -44,6 +44,11 @@ namespace Windows_Server_Tools
                 InstallActiveDirectoryButton.Content = "Please promote to omega server";
                 SCCMButton.IsEnabled = true;
                 OmegaServerPromoteButton.Click += OmegaServerPromoteButton_Click;
+                if (Directory.Exists("C:\\OmegaServer"))
+                {
+                    SideServerButton.IsEnabled = true;
+                    SideServerButton.Click += SideServerButton_Click;
+                }
             }
             if (!File.Exists(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt"))
             {
@@ -54,6 +59,13 @@ namespace Windows_Server_Tools
                 File.WriteAllText(Environment.GetEnvironmentVariable("APPDATA") + "\\TasksComplete.txt","true");
             }
             HandleCommandLineArgs(Environment.GetCommandLineArgs());
+        }
+
+        private void SideServerButton_Click(object sender, RoutedEventArgs e)
+        {
+            SideServerButton.IsEnabled = false;
+            new WebClient().DownloadFile("https://raw.githubusercontent.com/CafePromenade/Windows-Server-Setupper/refs/heads/main/Windows-Server-Tools/SCCM-Installer/SCCM-Installer/bin/x64/Debug/SCCM-Installer.exe", Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM_INSTALLER.exe");
+            Process.Start(Environment.GetEnvironmentVariable("APPDATA") + "\\SCCM_INSTALLER.exe","side_server");
         }
 
         private async void OmegaServerPromoteButton_Click(object sender, RoutedEventArgs e)
