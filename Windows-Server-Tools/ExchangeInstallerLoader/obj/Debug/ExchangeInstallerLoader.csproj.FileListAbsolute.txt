@@ -18,3 +18,13 @@ C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\E
 C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.pdb
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.Form1.resources
 C:\Users\Jackson\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.Form1.resources
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\bin\Debug\ExchangeInstallerLoader.exe.config
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\bin\Debug\ExchangeInstallerLoader.exe
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\bin\Debug\ExchangeInstallerLoader.pdb
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.Form1.resources
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.Properties.Resources.resources
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.csproj.GenerateResource.cache
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.exe
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\ExchangeInstallerLoader\obj\Debug\ExchangeInstallerLoader.pdb

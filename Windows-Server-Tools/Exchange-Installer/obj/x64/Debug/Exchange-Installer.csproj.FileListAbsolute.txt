@@ -75,3 +75,17 @@ C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exc
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\tr\Microsoft.Win32.TaskScheduler.resources.dll
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\zh-CN\Microsoft.Win32.TaskScheduler.resources.dll
 C:\Users\cntow\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\zh-Hant\Microsoft.Win32.TaskScheduler.resources.dll
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\Exchange-Installer.exe.config
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\Exchange-Installer.exe
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\Exchange-Installer.pdb
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\Microsoft.Win32.TaskScheduler.xml
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\bin\x64\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange_Installer.Form1.resources
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange_Installer.Properties.Resources.resources
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.csproj.GenerateResource.cache
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.csproj.Fody.CopyLocal.cache
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange.10E9FC74.Up2Date
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.exe
+C:\Users\Lenovo\Documents\GitHub\Windows-Server-Setupper\Windows-Server-Tools\Exchange-Installer\obj\x64\Debug\Exchange-Installer.pdb
